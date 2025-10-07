@@ -1,0 +1,35 @@
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { servicesContent } from "@/content/servicos";
+
+export function ServicesTeaser() {
+  const featured = servicesContent.services.slice(0, 3);
+  return (
+    <div className="grid gap-6 lg:grid-cols-3">
+      {featured.map((service, index) => (
+        <motion.article
+          key={service.id}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.45, delay: index * 0.05, ease: "easeOut" }}
+          className="flex h-full flex-col rounded-3xl border border-neutral-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+        >
+          <h3 className="font-heading text-xl font-semibold text-neutral-900">
+            {service.name}
+          </h3>
+          <p className="mt-3 text-sm text-neutral-600">{service.description}</p>
+          <Link
+            href={service.cta.href}
+            className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[#DD0000] transition hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2"
+          >
+            {service.cta.label}
+            <span aria-hidden>→</span>
+          </Link>
+        </motion.article>
+      ))}
+    </div>
+  );
+}
