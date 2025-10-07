@@ -1,30 +1,32 @@
+import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/lib/siteConfig";
 import { Container } from "./Container";
 
 export function Footer() {
   return (
-    <footer className="bg-[#000000] text-neutral-100">
+    <footer className="bg-neutral-900 text-neutral-100 transition-colors duration-300 dark:bg-black">
       <Container className="grid gap-10 py-12 lg:grid-cols-4">
         <div className="space-y-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#DD0000] via-[#F77F00] to-[#FCBF49] text-lg font-bold text-black">
-              ME
-            </div>
-            <div>
-              <p className="font-heading text-lg font-semibold">
-                {siteConfig.name}
-              </p>
-              <p className="text-xs text-neutral-300">
-                Construindo valor com fé e transparência.
-              </p>
-            </div>
+            <span className="relative flex h-14 w-44 items-center">
+              <Image
+                src="/matzah-logo.png"
+                alt="Logotipo da Matzah Empreendimentos & Construções"
+                fill
+                sizes="176px"
+                className="object-contain"
+              />
+            </span>
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-400">
+              Construindo com propósito
+            </span>
           </div>
           <p className="text-sm text-neutral-300">
             Soluções imobiliárias e construtivas com propósito, conectando pessoas, projetos e oportunidades em Pernambuco.
           </p>
-          <p className="text-xs text-neutral-400">
-            Referência Bíblica: Salmo 127:1 — Nosso trabalho é alicerçado em fé e propósito.
+          <p className="text-xs text-neutral-200">
+            &ldquo;Se o Senhor não edificar a casa, em vão trabalham os que a edificam.&rdquo; — Salmo 127:1
           </p>
         </div>
 
@@ -103,7 +105,7 @@ export function Footer() {
       </Container>
 
       <div className="border-t border-white/10">
-        <Container className="flex flex-col items-center justify-between gap-4 py-6 text-xs text-neutral-500 sm:flex-row">
+        <Container className="flex flex-col items-center justify-between gap-4 py-6 text-xs text-neutral-400 sm:flex-row">
           <p>© 2025 {siteConfig.name}. Todos os direitos reservados.</p>
           <p>Desenvolvimento responsável. Relacionamentos duradouros.</p>
         </Container>

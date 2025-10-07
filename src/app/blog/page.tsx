@@ -53,44 +53,57 @@ export default function BlogPage() {
       </section>
 
       <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {blogContent.posts.map((title) => {
-          const slug = title
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)+/g, "");
-          return (
-            <article
-              key={title}
-              className="flex h-full flex-col rounded-3xl border border-neutral-100 bg-white p-6 shadow-sm"
-            >
+        {blogContent.posts.map((post) => (
+          <article
+            key={post.slug}
+            id={post.slug}
+            className="flex h-full flex-col gap-4 rounded-3xl border border-neutral-100 bg-white p-6 shadow-sm"
+          >
+            <div className="flex items-center justify-between gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-400">
+              <span>{post.category}</span>
+              <span className="flex items-center gap-2 text-neutral-500">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#DD0000]" aria-hidden />
+                {post.readTime}
+              </span>
+            </div>
+            <h2 className="font-heading text-xl font-semibold text-neutral-900">
+              {post.title}
+            </h2>
+            <p className="text-sm text-neutral-600">{post.excerpt}</p>
+            <div className="space-y-3 text-sm leading-relaxed text-neutral-700">
+              {post.body.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+            <div className="pt-4">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-400">
-                Insights
+                Em resumo
               </p>
-              <h2 className="mt-3 font-heading text-xl font-semibold text-neutral-900">
-                {title}
-              </h2>
-              <p className="mt-3 text-sm text-neutral-600">
-                Em breve você encontra aqui o conteúdo completo. Enquanto isso, fale conosco para receber materiais exclusivos sobre o tema.
-              </p>
-              <div className="mt-auto flex flex-wrap gap-3 pt-6">
-                <Link
-                  href={`/contato?assunto=conteudo&tema=${slug}`}
-                  className="inline-flex items-center gap-2 rounded-full bg-[#DD0000] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#c20000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2"
-                >
-                  Pedir material
-                </Link>
-                <Link
-                  href="#newsletter"
-                  className="inline-flex items-center gap-2 rounded-full border border-neutral-200 px-4 py-2 text-sm font-semibold text-neutral-800 transition hover:border-[#F77F00] hover:text-[#DD0000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2"
-                >
-                  Receber por e-mail
-                </Link>
-              </div>
-            </article>
-          );
-        })}
+              <ul className="mt-2 space-y-2 text-sm text-neutral-700">
+                {post.takeaways.map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#DD0000]" aria-hidden />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-auto flex flex-wrap gap-3 pt-4">
+              <Link
+                href={`/contato?assunto=conteudo&tema=${post.slug}`}
+                className="inline-flex items-center gap-2 rounded-full bg-[#DD0000] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#c20000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2"
+              >
+                Falar com um especialista
+              </Link>
+              <Link
+                href="#newsletter"
+                className="inline-flex items-center gap-2 rounded-full border border-neutral-200 px-4 py-2 text-sm font-semibold text-neutral-800 transition hover:border-[#F77F00] hover:text-[#DD0000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2"
+              >
+                Assinar novos conteúdos
+              </Link>
+            </div>
+          </article>
+        ))}
       </section>
 
       <NewsletterForm

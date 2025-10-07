@@ -4,10 +4,12 @@ export const heroContent = {
     "Matzah Empreendimentos & Construções — Fé, transparência e excelência no mercado imobiliário de Bezerros e região.",
   lead:
     "Somos uma empresa pernambucana que une propósito, inovação e compromisso cristão para desenvolver, representar e construir empreendimentos que valorizam pessoas, espaços e cidades.",
-  ctas: [
+  primaryCtas: [
     { label: "Ver Empreendimentos", href: "/empreendimentos" },
-    { label: "Solicitar Avaliação de Imóvel", href: "/contato?assunto=avaliacao" },
     { label: "Falar no WhatsApp", href: "https://wa.me/5581999999999" },
+  ],
+  secondaryLinks: [
+    { label: "Solicitar Avaliação de Imóvel", href: "/contato?assunto=avaliacao" },
     { label: "Quero Financiar", href: "/contato?assunto=financiamento" },
     { label: "Representar Meu Terreno", href: "/contato?assunto=parceria" },
   ],

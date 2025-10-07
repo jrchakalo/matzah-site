@@ -26,13 +26,26 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         {service.name}
       </h3>
       <p className="mt-4 text-sm text-neutral-600">{service.description}</p>
-      <Link
-        href={service.cta.href}
-        className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[#DD0000] transition hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2"
-      >
-        {service.cta.label}
-        <span aria-hidden>→</span>
-      </Link>
+      <div className="mt-6 flex flex-wrap items-center gap-3">
+        <Link
+          href={service.cta.href}
+          className="inline-flex items-center gap-2 rounded-full bg-[#DD0000]/10 px-4 py-2 text-sm font-semibold text-[#DD0000] transition hover:bg-[#DD0000]/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2"
+        >
+          {service.cta.label}
+          <span aria-hidden>→</span>
+        </Link>
+        {service.hubUrl ? (
+          <Link
+            href={service.hubUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-600 transition hover:border-[#F77F00] hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2"
+          >
+            Hub dedicado
+            <span aria-hidden>↗</span>
+          </Link>
+        ) : null}
+      </div>
     </motion.article>
   );
 }

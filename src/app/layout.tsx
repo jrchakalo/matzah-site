@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/siteConfig";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
+import { ThemeProvider } from "@/components/layout/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -70,7 +71,7 @@ const organizationSchema = {
   "@type": "Organization",
   name: siteConfig.name,
   url: siteConfig.url,
-  logo: `${siteConfig.url}/images/hero-construcao.jpg`,
+  logo: `${siteConfig.url}/matzah-logo.png`,
   sameAs: [siteConfig.social.instagram, siteConfig.social.linkedin],
   address: {
     "@type": "PostalAddress",
@@ -95,14 +96,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${poppins.variable} flex min-h-screen flex-col bg-neutral-50 text-neutral-900 antialiased`}
+        className={`${inter.variable} ${poppins.variable} flex min-h-screen flex-col bg-neutral-100 text-neutral-900 antialiased transition-colors duration-300 dark:bg-neutral-950 dark:text-neutral-50`}
       >
-        <Header />
-        <main className="flex-1 pt-24 pb-16">{children}</main>
-        <Footer />
-        <FloatingWhatsApp />
+        <ThemeProvider>
+          <Header />
+          <main className="flex-1 pb-20 pt-24 sm:pt-28">{children}</main>
+          <Footer />
+          <FloatingWhatsApp />
+        </ThemeProvider>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}

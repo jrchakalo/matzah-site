@@ -5,12 +5,13 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { heroContent } from "@/content/home";
 import { siteConfig } from "@/lib/siteConfig";
+import { cn } from "@/lib/utils";
 
 const whatsappHref = `https://wa.me/${siteConfig.whatsappNumber.replace("+", "")}`;
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden rounded-3xl border border-neutral-100 bg-neutral-950 text-white shadow-xl">
+  <section className="relative overflow-hidden rounded-3xl border border-neutral-200 bg-neutral-900 text-white shadow-xl transition-colors duration-500 dark:border-neutral-800">
       <div className="absolute inset-0">
         <Image
           src="/images/hero-construcao.jpg"
@@ -25,9 +26,9 @@ export function Hero() {
 
       <div className="relative z-10 flex flex-col gap-12 px-6 py-16 sm:px-10 lg:flex-row lg:items-center lg:px-16">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
           className="max-w-2xl"
         >
           <p className="inline-flex rounded-full bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#FCBF49]">
@@ -43,32 +44,59 @@ export function Hero() {
             {heroContent.lead}
           </p>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {heroContent.ctas.map((cta) => {
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            {heroContent.primaryCtas.map((cta, index) => {
               const href = cta.label.includes("WhatsApp") ? whatsappHref : cta.href;
+              const primaryStyles =
+                index === 0
+                  ? "bg-brand-accent text-neutral-900 hover:bg-brand-secondary/90"
+                  : "bg-white/10 text-white hover:bg-white/15";
               return (
                 <Link
                   key={cta.label}
                   href={href}
-                  className="inline-flex items-center justify-between rounded-2xl border border-white/20 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:border-[#FCBF49]/60 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900"
+                  className={cn(
+                    "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-900",
+                    primaryStyles
+                  )}
                 >
-                  <span>{cta.label}</span>
-                  <span aria-hidden>→</span>
+                  {cta.label}
                 </Link>
               );
             })}
           </div>
+          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-neutral-200/80">
+            {heroContent.secondaryLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 transition hover:border-brand-accent hover:text-white"
+              >
+                <span className="text-brand-accent">•</span>
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
           className="relative isolate overflow-hidden rounded-3xl bg-white/10 p-6 backdrop-blur lg:w-[360px]"
         >
           <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-[#FCBF49]/30 blur-3xl" aria-hidden />
           <div className="absolute -bottom-12 -left-10 h-32 w-32 rounded-full bg-[#DD0000]/30 blur-3xl" aria-hidden />
           <div className="relative space-y-4">
+            <span className="relative block h-10 w-32">
+              <Image
+                src="/matzah-logo.png"
+                alt="Logotipo da Matzah"
+                fill
+                sizes="128px"
+                className="object-contain"
+              />
+            </span>
             <h2 className="font-heading text-2xl font-semibold text-white">
               Credibilidade que inspira segurança
             </h2>
@@ -82,7 +110,7 @@ export function Hero() {
             </div>
             <Link
               href="/servicos"
-              className="inline-flex items-center justify-center rounded-full bg-[#FCBF49] px-5 py-3 text-sm font-semibold text-neutral-900 transition hover:bg-[#F6A20A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900"
+              className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:border-brand-accent hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900"
             >
               Conheça nossas soluções
             </Link>

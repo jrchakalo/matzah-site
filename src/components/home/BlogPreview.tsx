@@ -36,10 +36,15 @@ export function BlogPreview() {
         </h3>
         <p className="text-base text-neutral-600">{blogContent.introduction}</p>
         <ul className="space-y-3 text-sm text-neutral-700">
-          {posts.map((title) => (
-            <li key={title} className="flex items-start gap-3">
+          {posts.map((post) => (
+            <li key={post.slug} className="flex items-start gap-3">
               <span className="mt-1 h-2 w-2 rounded-full bg-[#DD0000]" aria-hidden />
-              <span>{title}</span>
+              <span>
+                <span className="font-semibold text-neutral-900">
+                  {post.title}
+                </span>
+                <span className="block text-neutral-600">{post.excerpt}</span>
+              </span>
             </li>
           ))}
         </ul>

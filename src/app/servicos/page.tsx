@@ -73,6 +73,34 @@ export default function ServicosPage() {
         </div>
         <ProcessTimeline />
       </section>
+
+      <section className="space-y-4 rounded-3xl border border-dashed border-neutral-200 bg-white/70 p-6 shadow-sm">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h3 className="font-heading text-xl font-semibold text-neutral-900">
+              Hubs especializados Matzah
+            </h3>
+            <p className="text-sm text-neutral-600">
+              Cada frente possui um endereço dedicado com conteúdo aprofundado, cases e formulários específicos para acelerar o atendimento.
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          {servicesContent.hubs.map((hub) => (
+            <a
+              key={hub.url}
+              href={hub.url}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-700 transition hover:border-[#F77F00] hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-[#DD0000]" aria-hidden />
+              {hub.label}
+              <span aria-hidden>↗</span>
+            </a>
+          ))}
+        </div>
+      </section>
     </Container>
   );
 }
