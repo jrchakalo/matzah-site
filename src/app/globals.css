@@ -1,21 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f9f7f2;
-  --foreground: #131313;
-  --surface: #ffffff;
-  --surface-soft: #f3efe6;
-  --surface-muted: rgba(255, 255, 255, 0.88);
-  --border-color: rgba(17, 17, 17, 0.08);
-}
-
-html.dark {
   --background: #181818;
   --foreground: #f5f4ef;
   --surface: #212121;
   --surface-soft: #272727;
   --surface-muted: rgba(39, 39, 39, 0.92);
+  --surface-alt: #252525;
   --border-color: rgba(255, 255, 255, 0.08);
+  --text-secondary: #d7d6d2;
+  --text-tertiary: #bcbab6;
+  --chip-bg: rgba(255, 255, 255, 0.08);
+  --chip-border: rgba(255, 255, 255, 0.12);
+  --header-bg: rgba(31, 31, 31, 0.9);
+  --header-border: rgba(255, 255, 255, 0.08);
+  --header-link: #f5f4ef;
+  --header-link-muted: #bab8b3;
+  --header-link-hover: #f77f00;
+  --footer-bg: #171514;
+  --footer-text: #f1efe9;
+  --footer-subtle: #a7a5a1;
+  --card-shadow: rgba(247, 127, 0, 0.12);
+  --input-bg: #2a2a2a;
+  --input-border: rgba(255, 255, 255, 0.14);
+  --input-placeholder: rgba(255, 255, 255, 0.45);
+  --badge-bg: rgba(247, 127, 0, 0.28);
+  --gradient-soft: linear-gradient(145deg, rgba(221, 0, 0, 0.22), rgba(12, 12, 12, 0.6));
 }
 
 body {

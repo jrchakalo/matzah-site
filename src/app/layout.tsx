@@ -5,7 +5,6 @@ import { siteConfig } from "@/lib/siteConfig";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
-import { ThemeProvider } from "@/components/layout/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -89,24 +88,22 @@ const organizationSchema = {
     availableLanguage: "Portuguese",
   },
 };
-
+ 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang="pt-BR" className="dark">
       <body
         className={`${inter.variable} ${poppins.variable} flex min-h-screen flex-col antialiased transition-colors duration-300`}
         style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}
       >
-        <ThemeProvider>
-          <Header />
-          <main className="flex-1 pb-20 pt-24 sm:pt-28">{children}</main>
-          <Footer />
-          <FloatingWhatsApp />
-        </ThemeProvider>
+        <Header />
+        <main className="flex-1 pb-20 pt-24 sm:pt-28">{children}</main>
+        <Footer />
+        <FloatingWhatsApp />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}

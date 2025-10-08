@@ -15,17 +15,17 @@ export function ServicesTeaser() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.45, delay: index * 0.05, ease: "easeOut" }}
-          className="flex h-full flex-col rounded-3xl border border-neutral-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-[#212121]"
+          className="flex h-full flex-col rounded-3xl border border-[color:var(--border-color)] bg-[color:var(--surface-muted)] p-6 shadow-[0_25px_50px_-30px_var(--card-shadow)] transition hover:-translate-y-1 hover:shadow-[0_25px_55px_-25px_var(--card-shadow)] dark:border-white/10 dark:bg-[#212121]"
         >
-          <h3 className="font-heading text-xl font-semibold text-neutral-900 dark:text-white">
+          <h3 className="font-heading text-xl font-semibold text-[color:var(--foreground)] dark:text-white">
             {service.name}
           </h3>
-          <p className="mt-3 text-sm text-neutral-600 dark:text-neutral-200">
+          <p className="mt-3 text-sm text-[color:var(--text-secondary)] dark:text-neutral-200">
             {service.description}
           </p>
           <Link
             href={service.cta.href}
-            className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[#DD0000] transition hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#121212]"
+            className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[#DD0000] transition hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-[#121212]"
           >
             {service.cta.label}
             <span aria-hidden>→</span>

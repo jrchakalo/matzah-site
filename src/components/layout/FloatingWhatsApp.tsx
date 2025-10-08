@@ -15,10 +15,10 @@ export function FloatingWhatsApp() {
       <Link
         href={`https://wa.me/${siteConfig.whatsappNumber.replace("+", "")}`}
         aria-label="Abrir conversa no WhatsApp"
-  className="group inline-flex items-center gap-3 rounded-full border border-brand-accent/40 bg-brand-primary px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-primary/40 transition hover:-translate-y-1 hover:bg-brand-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-950"
+        className="inline-flex items-center gap-2 rounded-full bg-black px-3 py-2 text-xs font-semibold text-white shadow-lg shadow-black/40 transition hover:-translate-y-0.5 hover:bg-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-black sm:px-4 sm:py-3 sm:text-sm"
       >
-        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15">
-          <WhatsAppIcon className="h-4 w-4" />
+        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 sm:h-7 sm:w-7">
+          <WhatsAppIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
         </span>
         {siteConfig.whatsappLabel}
       </Link>

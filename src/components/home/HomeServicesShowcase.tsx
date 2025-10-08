@@ -6,15 +6,15 @@ import { servicesContent } from "@/content/servicos";
 import { cn } from "@/lib/utils";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const shades = [
-  "from-[#2F2B43]/95 to-[#211B31]",
-  "from-[#DD0000]/95 to-[#8F0D0D]",
-  "from-[#F77F00]/90 to-[#DD5600]/90",
-  "from-[#1F3A5F]/95 to-[#0F1E30]",
-  "from-[#0D9488]/95 to-[#0F766E]/95",
-  "from-[#6366F1]/90 to-[#4338CA]/95",
-  "from-[#4C1D95]/90 to-[#312E81]/95",
-  "from-[#166534]/95 to-[#14532D]/95",
+const gradients = [
+  ["from-[#2F2B43]/95", "via-[#2F2B43]/90", "to-[#211B31]"],
+  ["from-[#DD0000]/95", "via-[#b41212]/95", "to-[#8F0D0D]"],
+  ["from-[#F77F00]/90", "via-[#F77F00]/80", "to-[#DD5600]/90"],
+  ["from-[#1F3A5F]/95", "via-[#1b3253]/95", "to-[#0F1E30]"],
+  ["from-[#0D9488]/95", "via-[#119384]/95", "to-[#0F766E]/95"],
+  ["from-[#6366F1]/90", "via-[#5558e7]/90", "to-[#4338CA]/95"],
+  ["from-[#4C1D95]/90", "via-[#3c1979]/95", "to-[#312E81]/95"],
+  ["from-[#166534]/95", "via-[#145a30]/95", "to-[#14532D]/95"],
 ];
 
 const columnVariants: Variants = {
@@ -31,7 +31,9 @@ function ServiceHighlightCard({
   service,
   index,
 }: {
-  service: (typeof servicesContent.services)[number] & { gradient: string };
+  service: (typeof servicesContent.services)[number] & {
+    gradient: (typeof gradients)[number];
+  };
   index: number;
 }) {
   const { ref, shouldAnimate } = useScrollReveal<HTMLElement>();
@@ -53,19 +55,15 @@ function ServiceHighlightCard({
       whileInView={shouldAnimate ? "visible" : undefined}
       viewport={viewportConfig}
       transition={transitionConfig}
-      whileHover={{ y: -6 }}
-      whileTap={{ y: -2 }}
       className={cn(
-        "group relative overflow-hidden rounded-3xl p-6 text-white shadow-xl",
-        "ring-1 ring-inset ring-white/10 backdrop-blur",
-        "transition-colors duration-300",
-        "dark:ring-white/5",
+  "group relative overflow-hidden rounded-3xl border border-[color:var(--border-color)] p-6 text-[color:var(--foreground)] shadow-[0_28px_60px_-32px_var(--card-shadow)] backdrop-blur",
         "bg-gradient-to-br",
-        service.gradient,
+        ...service.gradient,
+  "transition duration-200 ease-out hover:-translate-y-2 focus-visible:-translate-y-1 dark:border-white/5 dark:text-white",
       )}
     >
       <div className="flex items-start justify-between gap-3">
-        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
+        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--header-link-muted)] dark:text-white/70">
           {String(index + 1).padStart(2, "0")}
         </span>
         {service.hubUrl ? (
@@ -73,21 +71,23 @@ function ServiceHighlightCard({
             href={service.hubUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold text-white/85 transition hover:border-white/60 hover:bg-white/20"
+            className="inline-flex items-center gap-1 rounded-full border border-[color:var(--border-color)] bg-[color:var(--surface)] px-3 py-1 text-[11px] font-semibold text-[color:var(--header-link)] transition-colors hover:border-[#F77F00]/70 hover:bg-[#F77F00]/10 hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:border-white/10 dark:bg-white/10 dark:text-white/85 dark:hover:border-[#F77F00]/70 dark:hover:bg-[#F77F00]/10 dark:hover:text-[#F77F00] dark:focus-visible:ring-offset-[#0E0E10]"
           >
             Acesse o site
             <span aria-hidden>↗</span>
           </Link>
         ) : null}
       </div>
-      <h3 className="mt-4 font-heading text-xl font-semibold leading-tight text-white">
+      <h3 className="mt-4 font-heading text-xl font-semibold leading-tight text-[color:var(--foreground)] dark:text-white">
         {service.name}
       </h3>
-      <p className="mt-3 text-sm text-white/80">{service.description}</p>
-      <div className="mt-6 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
+      <p className="mt-3 text-sm text-[color:var(--text-secondary)] dark:text-white/80">
+        {service.description}
+      </p>
+      <div className="mt-6 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--header-link-muted)] dark:text-white/60">
         <Link
           href={service.cta.href}
-          className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-[11px] font-semibold text-white transition hover:border-white hover:bg-white hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+          className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border-color)] bg-[color:var(--surface-soft)] px-4 py-2 text-[11px] font-semibold text-[#DD0000] transition-colors hover:border-[#F77F00] hover:bg-[#F77F00]/18 hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:border-white/30 dark:bg-white/10 dark:text-white dark:hover:border-[#F77F00] dark:hover:bg-[#F77F00]/10 dark:hover:text-[#F77F00] dark:focus-visible:ring-white/70 dark:focus-visible:ring-offset-[#0E0E10]"
         >
           {service.cta.label}
           <span aria-hidden>→</span>
@@ -101,7 +101,7 @@ export function HomeServicesShowcase() {
   const leftColumnReveal = useScrollReveal<HTMLDivElement>();
   const services = servicesContent.services.map((service, index) => ({
     ...service,
-    gradient: shades[index % shades.length],
+    gradient: gradients[index % gradients.length],
   }));
   const leftInitial = leftColumnReveal.shouldAnimate ? "hidden" : false;
   const leftAnimate = leftColumnReveal.shouldAnimate ? undefined : "visible";
@@ -110,7 +110,7 @@ export function HomeServicesShowcase() {
     : undefined;
 
   return (
-    <section className="relative overflow-hidden rounded-[2.5rem] border border-neutral-200/70 bg-[var(--surface-muted)] p-8 shadow-lg backdrop-blur lg:p-12 dark:border-white/10 dark:bg-[#1e1e1e]">
+  <section className="relative overflow-hidden rounded-[2.5rem] border border-[color:var(--border-color)] bg-[color:var(--surface-soft)] p-8 shadow-[0_40px_80px_-45px_var(--card-shadow)] backdrop-blur lg:p-12 dark:border-white/10 dark:bg-[#1e1e1e]">
       <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
         <motion.div
           ref={leftColumnReveal.ref}
@@ -122,22 +122,22 @@ export function HomeServicesShowcase() {
           transition={{ duration: 0.55, ease: "easeOut" }}
           className="space-y-6"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-neutral-200/80 bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 dark:border-white/10 dark:bg-white/10 dark:text-white/70">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border-color)] bg-[color:var(--surface)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--text-tertiary)] shadow-sm shadow-[0_15px_35px_-25px_var(--card-shadow)] dark:border-white/10 dark:bg-white/10 dark:text-white/70">
             <span className="h-1.5 w-1.5 rounded-full bg-[#DD0000]" aria-hidden />
             Tudo começa com estratégia
           </div>
           <div className="space-y-4">
-            <h2 className="font-heading text-3xl font-semibold text-neutral-900 sm:text-4xl lg:text-5xl dark:text-white">
+            <h2 className="font-heading text-3xl font-semibold text-[color:var(--foreground)] sm:text-4xl lg:text-5xl dark:text-white">
               Um ecossistema completo em serviços imobiliários
             </h2>
-            <p className="text-base text-neutral-600 dark:text-white/70">
+            <p className="text-base text-[color:var(--text-secondary)] dark:text-white/70">
               Da concepção de empreendimentos à comercialização e gestão de vendas, a Matzah integra equipes técnicas, marketing e inteligência comercial para gerar resultado real em cada etapa do ciclo.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             <Link
               href={"/servicos"}
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#DD0000] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#DD0000]/30 transition hover:bg-[#F77F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0E0E10]"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#DD0000] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#DD0000]/30 transition hover:bg-[#F77F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-[#0E0E10]"
             >
               Explorar todos os serviços
               <span aria-hidden className="transition-transform group-hover:translate-x-1">
@@ -146,7 +146,7 @@ export function HomeServicesShowcase() {
             </Link>
             <Link
               href={"/contato?assunto=servicos"}
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-neutral-200 bg-white px-5 py-3 text-sm font-semibold text-neutral-900 transition hover:border-[#F77F00] hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-white/12 dark:bg-[#272727] dark:text-white dark:hover:border-[#F77F00] dark:hover:text-[#F77F00] dark:focus-visible:ring-offset-[#0E0E10]"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-[color:var(--border-color)] bg-[color:var(--surface)] px-5 py-3 text-sm font-semibold text-[color:var(--header-link)] transition-colors hover:border-[#F77F00] hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:border-white/12 dark:bg-[#272727] dark:text-white dark:hover:border-[#F77F00] dark:hover:text-[#F77F00] dark:focus-visible:ring-offset-[#0E0E10]"
             >
               Construir uma solução sob medida
               <span aria-hidden>↗</span>
@@ -161,7 +161,7 @@ export function HomeServicesShowcase() {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/10 to-transparent dark:from-black/30" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#101f4c]/10 to-transparent dark:from-black/30" />
     </section>
   );
 }

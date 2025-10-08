@@ -39,11 +39,11 @@ export default function EmpreendimentosPage() {
         ))}
       </div>
 
-      <div className="rounded-3xl border border-neutral-100 bg-gradient-to-br from-[#DD0000]/10 via-[#F77F00]/10 to-[#FCBF49]/10 p-10 text-center transition-colors shadow-sm dark:border-white/10 dark:bg-[#24201c]">
-        <h2 className="font-heading text-3xl font-semibold text-neutral-900 dark:text-white">
+        <div className="rounded-3xl border border-[color:var(--border-color)] bg-[radial-gradient(circle_at_top_left,rgba(221,0,0,0.2),rgba(247,127,0,0.12),rgba(252,191,73,0.1)_70%)] p-10 text-center transition-colors shadow-[0_28px_60px_-35px_var(--card-shadow)] dark:border-white/10 dark:bg-[#24201c]">
+          <h2 className="font-heading text-3xl font-semibold text-[color:var(--foreground)] dark:text-white">
           {empreendimentosContent.closing}
         </h2>
-        <p className="mt-3 text-base text-neutral-600 dark:text-neutral-200">
+  <p className="mt-3 text-base text-[color:var(--text-secondary)] dark:text-neutral-200">
           Estruturamos o reposicionamento do seu ativo, do diagnóstico à comercialização, com transparência, dados e relacionamento de longo prazo.
         </p>
       </div>

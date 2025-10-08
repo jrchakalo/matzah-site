@@ -27,16 +27,16 @@ function ChannelCard({ channel, index }: ChannelCardProps) {
       whileInView={shouldAnimate ? "visible" : undefined}
       viewport={shouldAnimate ? { once: true, margin: "0px 0px -15% 0px" } : undefined}
       transition={{ duration: 0.5, ease: "easeOut", delay: shouldAnimate ? index * 0.05 : 0 }}
-      className="flex flex-col rounded-3xl border border-neutral-100 bg-white/90 p-5 shadow-sm transition-colors dark:border-white/10 dark:bg-[#212121]"
+      className="flex flex-col rounded-3xl border border-[color:var(--border-color)] bg-[color:var(--surface-muted)] p-5 shadow-[0_22px_50px_-28px_var(--card-shadow)] transition-colors dark:border-white/10 dark:bg-[#212121]"
     >
-      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-400 dark:text-neutral-300">
+      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--header-link-muted)] dark:text-neutral-300">
         {channel.label}
       </span>
-      <p className="mt-2 text-base font-semibold text-neutral-900 dark:text-white">
+      <p className="mt-2 text-base font-semibold text-[color:var(--foreground)] dark:text-white">
         {channel.href ? (
           <Link
             href={channel.href}
-            className="transition hover:text-[#DD0000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#121212]"
+            className="transition hover:text-[#DD0000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface-muted)] dark:focus-visible:ring-offset-[#121212]"
           >
             {channel.value}
           </Link>
@@ -44,7 +44,7 @@ function ChannelCard({ channel, index }: ChannelCardProps) {
           channel.value
         )}
       </p>
-      <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-200">
+      <p className="mt-1 text-sm text-[color:var(--text-secondary)] dark:text-neutral-200">
         {channel.description}
       </p>
     </motion.div>

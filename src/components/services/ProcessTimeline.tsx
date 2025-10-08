@@ -40,10 +40,10 @@ function TimelineStep({ step, index, lineOffset }: TimelineStepProps) {
         <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[#DD0000] via-[#F77F00] to-[#FCBF49] shadow-[0_0_12px_rgba(221,0,0,0.28)]" />
       </span>
       <div className="space-y-1">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-600 dark:text-neutral-300">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--header-link-muted)] dark:text-neutral-300">
           Etapa {index + 1}
         </p>
-        <p className="text-base font-medium text-neutral-900 dark:text-neutral-100">
+        <p className="text-base font-medium text-[color:var(--foreground)] dark:text-neutral-100">
           {step}
         </p>
       </div>
@@ -58,7 +58,7 @@ export function ProcessTimeline() {
     <div className="relative">
       <span
         aria-hidden
-        className="pointer-events-none absolute top-0 bottom-0 border-l border-dashed border-[#F77F00]/55 dark:border-[#F77F00]/40"
+  className="pointer-events-none absolute top-0 bottom-0 border-l border-dashed border-[#F77F00]/45 dark:border-[#F77F00]/40"
         style={{ left: lineOffset }}
       />
       <ol className="space-y-8">

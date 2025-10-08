@@ -26,13 +26,13 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
       whileInView={shouldAnimate ? "visible" : undefined}
       viewport={shouldAnimate ? { once: true, margin: "0px 0px -12% 0px" } : undefined}
       transition={{ duration: 0.5, ease: "easeOut", delay: shouldAnimate ? index * 0.05 : 0 }}
-      className="flex h-full flex-col justify-between rounded-3xl border border-neutral-100 bg-white p-6 shadow-sm transition-colors dark:border-white/10 dark:bg-[#212121]"
+      className="flex h-full flex-col justify-between rounded-3xl border border-[color:var(--border-color)] bg-[color:var(--surface-soft)] p-6 shadow-[0_25px_50px_-30px_var(--card-shadow)] transition-colors dark:border-white/10 dark:bg-[#212121]"
     >
-      <blockquote className="text-base text-neutral-700 dark:text-neutral-100">
+      <blockquote className="text-base text-[color:var(--text-secondary)] dark:text-neutral-100">
         “{testimonial.quote}”
       </blockquote>
-      <figcaption className="mt-6 border-t border-neutral-100 pt-4 text-sm font-semibold text-neutral-900 dark:border-white/10 dark:text-white">
-        {testimonial.author} <span className="font-normal text-neutral-500 dark:text-neutral-300">— {testimonial.role}</span>
+      <figcaption className="mt-6 border-t border-[color:var(--border-color)] pt-4 text-sm font-semibold text-[color:var(--foreground)] dark:border-white/10 dark:text-white">
+        {testimonial.author} <span className="font-normal text-[color:var(--text-tertiary)] dark:text-neutral-300">— {testimonial.role}</span>
       </figcaption>
     </motion.figure>
   );
