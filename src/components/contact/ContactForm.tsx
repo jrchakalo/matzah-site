@@ -1,9 +1,10 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { contactContent } from "@/content/contato";
 import { siteConfig } from "@/lib/siteConfig";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const subjects = [
   "Compra",
@@ -15,8 +16,14 @@ const subjects = [
   "Outros",
 ];
 
+const formVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const { ref, shouldAnimate } = useScrollReveal<HTMLFormElement>();
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -40,11 +47,14 @@ export function ContactForm() {
 
   return (
     <motion.form
+      ref={ref}
+      variants={formVariants}
+      initial={shouldAnimate ? "hidden" : "visible"}
+      animate={shouldAnimate ? undefined : "visible"}
+      whileInView={shouldAnimate ? "visible" : undefined}
+      viewport={shouldAnimate ? { once: true, margin: "0px 0px -10% 0px" } : undefined}
+      transition={{ duration: 0.55, ease: "easeOut" }}
       onSubmit={handleSubmit}
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.4 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
       className="space-y-5"
       aria-live="polite"
     >

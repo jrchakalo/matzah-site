@@ -76,7 +76,6 @@ export const servicesContent = {
     "Acompanhamento & Relacionamento",
     "Pós-entrega & Valorização",
   ],
-  trustMessage: "Cada projeto tratado como se fosse o único.",
   hubs: [
     { label: "Portal Principal", url: "https://www.matzah.com.br" },
     { label: "Soluções Imobiliárias", url: "https://matzahsolucoesimobiliarias.com.br" },
