@@ -36,7 +36,7 @@ export default function BlogPage() {
             title={blogContent.title}
             description={blogContent.introduction}
           />
-          <p className="text-sm text-neutral-600">
+          <p className="text-sm text-[color:var(--text-secondary)] dark:text-neutral-300">
             Atualizamos este espaço com periodicidade quinzenal, priorizando análises profundas, dados de mercado e orientações práticas para investidores, empreendedores e famílias pernambucanas.
           </p>
         </div>
@@ -53,44 +53,57 @@ export default function BlogPage() {
       </section>
 
       <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {blogContent.posts.map((title) => {
-          const slug = title
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)+/g, "");
-          return (
-            <article
-              key={title}
-              className="flex h-full flex-col rounded-3xl border border-neutral-100 bg-white p-6 shadow-sm"
-            >
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-400">
-                Insights
+        {blogContent.posts.map((post) => (
+          <article
+            key={post.slug}
+            id={post.slug}
+            className="flex h-full flex-col gap-4 rounded-3xl border border-[color:var(--border-color)] bg-[color:var(--surface-muted)] p-6 shadow-[0_30px_60px_-38px_var(--card-shadow)] transition-colors dark:border-white/10 dark:bg-[#212121]"
+          >
+            <div className="flex items-center justify-between gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--header-link-muted)]">
+              <span className="text-[color:var(--text-tertiary)] dark:text-neutral-400">{post.category}</span>
+              <span className="flex items-center gap-2 text-[color:var(--text-tertiary)] dark:text-neutral-300">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#DD0000]" aria-hidden />
+                {post.readTime}
+              </span>
+            </div>
+            <h2 className="font-heading text-xl font-semibold text-[color:var(--foreground)] dark:text-white">
+              {post.title}
+            </h2>
+            <p className="text-sm text-[color:var(--text-secondary)] dark:text-neutral-200">{post.excerpt}</p>
+            <div className="space-y-3 text-sm leading-relaxed text-[color:var(--text-secondary)] dark:text-neutral-200">
+              {post.body.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+            <div className="pt-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--header-link-muted)] dark:text-neutral-300">
+                Em resumo
               </p>
-              <h2 className="mt-3 font-heading text-xl font-semibold text-neutral-900">
-                {title}
-              </h2>
-              <p className="mt-3 text-sm text-neutral-600">
-                Em breve você encontra aqui o conteúdo completo. Enquanto isso, fale conosco para receber materiais exclusivos sobre o tema.
-              </p>
-              <div className="mt-auto flex flex-wrap gap-3 pt-6">
-                <Link
-                  href={`/contato?assunto=conteudo&tema=${slug}`}
-                  className="inline-flex items-center gap-2 rounded-full bg-[#DD0000] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#c20000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2"
-                >
-                  Pedir material
-                </Link>
-                <Link
-                  href="#newsletter"
-                  className="inline-flex items-center gap-2 rounded-full border border-neutral-200 px-4 py-2 text-sm font-semibold text-neutral-800 transition hover:border-[#F77F00] hover:text-[#DD0000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2"
-                >
-                  Receber por e-mail
-                </Link>
-              </div>
-            </article>
-          );
-        })}
+              <ul className="mt-2 space-y-2 text-sm text-[color:var(--text-secondary)] dark:text-neutral-200">
+                {post.takeaways.map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#DD0000]" aria-hidden />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="mt-auto flex flex-wrap gap-3 pt-4">
+              <Link
+                href={`/contato?assunto=conteudo&tema=${post.slug}`}
+                className="inline-flex items-center gap-2 rounded-full bg-[#DD0000] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#c20000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface-muted)] dark:focus-visible:ring-offset-[#141414]"
+              >
+                Falar com um especialista
+              </Link>
+              <Link
+                href="#newsletter"
+                className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border-color)] bg-[color:var(--surface)] px-4 py-2 text-sm font-semibold text-[color:var(--header-link)] transition hover:border-[#F77F00] hover:text-[#DD0000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:border-white/15 dark:text-white dark:hover:border-[#F77F00] dark:hover:text-[#F77F00] dark:focus-visible:ring-offset-[#141414]"
+              >
+                Assinar novos conteúdos
+              </Link>
+            </div>
+          </article>
+        ))}
       </section>
 
       <NewsletterForm

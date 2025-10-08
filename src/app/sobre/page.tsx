@@ -34,31 +34,43 @@ export default function SobrePage() {
       />
 
       <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-start">
-        <div className="space-y-6 text-base text-neutral-600">
+        <div className="space-y-6 text-base text-[color:var(--text-secondary)] dark:text-neutral-300">
           <p>{aboutContent.history}</p>
-          <div className="rounded-3xl bg-neutral-50 p-6 shadow-inner">
-            <h3 className="font-heading text-xl font-semibold text-neutral-900">
+          <div className="rounded-3xl border border-[color:var(--border-color)] bg-[color:var(--surface-muted)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_24px_45px_-28px_var(--card-shadow)] dark:border-white/10 dark:bg-[#1f1f1f]/90">
+            <h3 className="font-heading text-xl font-semibold text-[color:var(--foreground)] dark:text-neutral-100">
               Propósito, missão e visão
             </h3>
             <dl className="mt-4 space-y-3 text-sm">
               <div>
-                <dt className="font-semibold text-[#DD0000]">Propósito</dt>
-                <dd className="text-neutral-700">{aboutContent.purpose}</dd>
+                <dt className="font-semibold text-[#DD0000] dark:text-[#F77F00]">
+                  Propósito
+                </dt>
+                <dd className="text-[color:var(--text-secondary)] dark:text-neutral-200">
+                  {aboutContent.purpose}
+                </dd>
               </div>
               <div>
-                <dt className="font-semibold text-[#DD0000]">Missão</dt>
-                <dd className="text-neutral-700">{aboutContent.mission}</dd>
+                <dt className="font-semibold text-[#DD0000] dark:text-[#F77F00]">
+                  Missão
+                </dt>
+                <dd className="text-[color:var(--text-secondary)] dark:text-neutral-200">
+                  {aboutContent.mission}
+                </dd>
               </div>
               <div>
-                <dt className="font-semibold text-[#DD0000]">Visão</dt>
-                <dd className="text-neutral-700">{aboutContent.vision}</dd>
+                <dt className="font-semibold text-[#DD0000] dark:text-[#F77F00]">
+                  Visão
+                </dt>
+                <dd className="text-[color:var(--text-secondary)] dark:text-neutral-200">
+                  {aboutContent.vision}
+                </dd>
               </div>
             </dl>
           </div>
         </div>
 
         <div className="space-y-6">
-          <div className="overflow-hidden rounded-3xl">
+          <div className="overflow-hidden rounded-3xl ring-1 ring-[color:var(--border-color)] dark:ring-white/10">
             <Image
               src="/images/obra-andamento.jpg"
               alt="Estrutura de construção com equipe técnica"
@@ -67,16 +79,21 @@ export default function SobrePage() {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="rounded-3xl border border-neutral-100 bg-white p-6 shadow-sm">
-            <h3 className="font-heading text-xl font-semibold text-neutral-900">
+          <div className="rounded-3xl border border-[color:var(--border-color)] bg-[color:var(--surface-muted)] p-6 shadow-[0_26px_55px_-32px_var(--card-shadow)] dark:border-white/10 dark:bg-[#1f1f1f]/90">
+            <h3 className="font-heading text-xl font-semibold text-[color:var(--foreground)] dark:text-neutral-100">
               Valores que sustentam nosso legado
             </h3>
-            <ul className="mt-4 space-y-3 text-sm text-neutral-700">
+            <ul className="mt-4 space-y-3 text-sm text-[color:var(--text-secondary)] dark:text-neutral-300">
               {aboutContent.values.map((value) => (
                 <li key={value.title} className="flex items-start gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-[#DD0000]" aria-hidden />
+                  <span
+                    className="mt-1 h-2 w-2 rounded-full bg-[#DD0000] dark:bg-[#F77F00]"
+                    aria-hidden
+                  />
                   <div>
-                    <p className="font-semibold text-neutral-900">{value.title}</p>
+                    <p className="font-semibold text-[color:var(--foreground)] dark:text-white">
+                      {value.title}
+                    </p>
                     <p>{value.description}</p>
                   </div>
                 </li>
@@ -87,11 +104,11 @@ export default function SobrePage() {
       </div>
 
       <div className="grid gap-10 lg:grid-cols-2">
-        <div className="rounded-3xl border border-neutral-100 bg-white p-6 shadow-sm">
-          <h3 className="font-heading text-xl font-semibold text-neutral-900">
+        <div className="rounded-3xl border border-[color:var(--border-color)] bg-[color:var(--surface-muted)] p-6 shadow-[0_26px_55px_-32px_var(--card-shadow)] dark:border-white/10 dark:bg-[#1f1f1f]/90">
+          <h3 className="font-heading text-xl font-semibold text-[color:var(--foreground)] dark:text-neutral-100">
             Diferenciais competitivos
           </h3>
-          <ul className="mt-4 space-y-3 text-sm text-neutral-700">
+          <ul className="mt-4 space-y-3 text-sm text-[color:var(--text-secondary)] dark:text-neutral-300">
             {aboutContent.differentials.map((item) => (
               <li key={item} className="flex items-start gap-3">
                 <span className="mt-1 h-2 w-2 rounded-full bg-[#F77F00]" aria-hidden />
@@ -102,14 +119,14 @@ export default function SobrePage() {
         </div>
 
         <div className="flex h-full flex-col justify-between rounded-3xl bg-gradient-to-br from-[#DD0000] via-[#F77F00] to-[#FCBF49] p-[1px]">
-          <div className="h-full rounded-3xl bg-white/95 p-8">
-            <h3 className="font-heading text-2xl font-semibold text-neutral-900">
+          <div className="h-full rounded-3xl bg-[color:var(--surface-muted)] p-8 dark:bg-[#121212]/90">
+            <h3 className="font-heading text-2xl font-semibold text-[color:var(--foreground)] dark:text-white">
               Caminhamos com você
             </h3>
-            <p className="mt-4 text-base text-neutral-700">
+            <p className="mt-4 text-base text-[color:var(--text-secondary)] dark:text-neutral-200">
               {aboutContent.closing}
             </p>
-            <p className="mt-6 text-sm font-semibold text-[#DD0000]">
+            <p className="mt-6 text-sm font-semibold text-[#DD0000] dark:text-[#FCBF49]">
               Construindo confiança. Entregando valor. Transformando vidas.
             </p>
           </div>

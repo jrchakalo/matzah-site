@@ -70,7 +70,7 @@ const organizationSchema = {
   "@type": "Organization",
   name: siteConfig.name,
   url: siteConfig.url,
-  logo: `${siteConfig.url}/images/hero-construcao.jpg`,
+  logo: `${siteConfig.url}/matzah-logo.png`,
   sameAs: [siteConfig.social.instagram, siteConfig.social.linkedin],
   address: {
     "@type": "PostalAddress",
@@ -88,19 +88,20 @@ const organizationSchema = {
     availableLanguage: "Portuguese",
   },
 };
-
+ 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className="dark">
       <body
-        className={`${inter.variable} ${poppins.variable} flex min-h-screen flex-col bg-neutral-50 text-neutral-900 antialiased`}
+        className={`${inter.variable} ${poppins.variable} flex min-h-screen flex-col antialiased transition-colors duration-300`}
+        style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}
       >
         <Header />
-        <main className="flex-1 pt-24 pb-16">{children}</main>
+        <main className="flex-1 pb-20 pt-24 sm:pt-28">{children}</main>
         <Footer />
         <FloatingWhatsApp />
         <script

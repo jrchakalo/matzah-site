@@ -29,7 +29,7 @@ export const contactContent = {
     },
     {
       label: "Redes Sociais",
-      value: "Instagram | LinkedIn",
+      value: "Instagram",
       description: "Conteúdo e bastidores sempre atualizados.",
       href: siteConfig.social.instagram,
     },

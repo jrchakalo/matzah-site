@@ -36,7 +36,7 @@ export default function ServicosPage() {
             title={servicesContent.title}
             description={servicesContent.intro}
           />
-          <p className="text-base text-neutral-600">
+          <p className="text-base text-[color:var(--text-secondary)] dark:text-neutral-200">
             Atuamos com governança, métricas claras e acompanhamento próximo em todas as frentes do ciclo imobiliário e construtivo. Cada demanda é analisada com profundidade para indicar o caminho ideal e maximizar o retorno.
           </p>
         </div>
@@ -57,17 +57,14 @@ export default function ServicosPage() {
             <ServiceCard key={service.id} service={service} index={index} />
           ))}
         </div>
-        <p className="text-sm font-semibold text-[#DD0000]">
-          Cada projeto tratado como se fosse o único.
-        </p>
       </section>
 
-      <section className="grid gap-10 rounded-3xl border border-neutral-100 bg-white/80 p-8 shadow-sm lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+      <section className="grid gap-10 rounded-3xl border border-[color:var(--border-color)] bg-[color:var(--surface-muted)] p-8 shadow-[0_32px_65px_-35px_var(--card-shadow)] transition-colors lg:grid-cols-[0.9fr_1.1fr] lg:items-center dark:border-white/10 dark:bg-[#1f1f1f]">
         <div className="space-y-4">
-          <h2 className="font-heading text-3xl font-semibold text-neutral-900">
+          <h2 className="font-heading text-3xl font-semibold text-[color:var(--foreground)] dark:text-white">
             Processo integrado que gera previsibilidade
           </h2>
-          <p className="text-base text-neutral-600">
+          <p className="text-base text-[color:var(--text-secondary)] dark:text-neutral-200">
             Nossa metodologia conecta diagnóstico, planejamento, modelagem comercial, execução e pós-entrega, garantindo transparência e tomada de decisão baseada em dados.
           </p>
         </div>

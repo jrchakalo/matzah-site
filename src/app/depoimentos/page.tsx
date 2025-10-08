@@ -35,13 +35,15 @@ export default function DepoimentosPage() {
 
       <TestimonialsGrid />
 
-      <div className="rounded-3xl border border-neutral-100 bg-white p-8 text-center shadow-sm">
-        <h2 className="font-heading text-2xl font-semibold text-neutral-900">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#DD0000] via-[#F77F00] to-[#FCBF49] p-[1px] shadow-xl">
+        <div className="rounded-[1.45rem] bg-white/95 p-8 text-center dark:bg-[#121212]/92">
+          <h2 className="font-heading text-2xl font-semibold text-neutral-900 dark:text-white">
           {testimonialsContent.closing}
-        </h2>
-        <p className="mt-3 text-sm text-neutral-600">
-          Preferimos conversar com calma e construir histórias duradouras. Compartilhe sua experiência ou fale conosco pelo WhatsApp.
-        </p>
+          </h2>
+          <p className="mt-3 text-sm text-neutral-600 dark:text-neutral-200">
+            Preferimos conversar com calma e construir histórias duradouras. Compartilhe sua experiência ou fale conosco pelo WhatsApp.
+          </p>
+        </div>
       </div>
     </Container>
   );

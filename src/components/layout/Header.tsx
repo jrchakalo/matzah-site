@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
@@ -11,21 +12,33 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-black/5 bg-white/90 shadow-sm backdrop-blur">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3" aria-label={siteConfig.name}>
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#DD0000] via-[#F77F00] to-[#FCBF49] text-white font-bold">
-            ME
-          </div>
-          <div className="flex flex-col">
-            <span className="font-heading text-base font-semibold text-neutral-900">
-              {siteConfig.name}
-            </span>
-            <span className="text-xs text-neutral-500">Construindo valor com fé</span>
-          </div>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[color:var(--header-border)] bg-[color:var(--header-bg)] shadow-sm backdrop-blur transition-colors duration-300 dark:border-white/10 dark:bg-[#1f1f1f]/90">
+      <div className="mx-auto flex w-full max-w-6xl items-center gap-6 px-4 py-3 sm:px-6 lg:px-8">
+        <Link href="/" className="flex items-center" aria-label={siteConfig.name}>
+          <span className="relative flex h-12 w-40 items-center">
+            <Image
+              src="/matzah-logo.png"
+              alt="Logotipo da Matzah Empreendimentos & Construções"
+              fill
+              sizes="160px"
+              className="object-contain dark:hidden"
+              priority
+            />
+            <Image
+              src="/matzah-logo-branco.png"
+              alt="Logotipo claro da Matzah Empreendimentos & Construções"
+              fill
+              sizes="160px"
+              className="hidden object-contain dark:block"
+              priority
+            />
+          </span>
         </Link>
 
-        <nav aria-label="Menu principal" className="hidden items-center gap-6 lg:flex">
+        <nav
+          aria-label="Menu principal"
+          className="mx-auto hidden items-center gap-6 text-[0.95rem] font-medium lg:flex"
+        >
           {siteConfig.navigation.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -33,15 +46,17 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "relative text-sm font-medium text-neutral-700 transition-colors hover:text-[#DD0000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#DD0000] focus-visible:ring-offset-2",
-                  isActive && "text-[#DD0000]"
+                  "relative rounded-full px-3 py-1 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#1f1f1f]",
+                  isActive
+                    ? "text-[color:var(--header-link)] dark:text-brand-accent"
+                    : "text-[color:var(--header-link-muted)] hover:text-[color:var(--header-link-hover)] dark:text-neutral-200 dark:hover:text-brand-accent"
                 )}
               >
                 {item.label}
                 {isActive && (
                   <motion.span
                     layoutId="activeNavigation"
-                    className="absolute -bottom-2 left-0 h-0.5 w-full bg-gradient-to-r from-[#DD0000] via-[#F77F00] to-[#FCBF49]"
+                    className="absolute -bottom-2 left-0 h-0.5 w-full rounded-full bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent"
                     aria-hidden
                   />
                 )}
@@ -50,16 +65,9 @@ export function Header() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <Link
-            href={`https://wa.me/${siteConfig.whatsappNumber.replace("+", "")}`}
-            className="inline-flex items-center justify-center rounded-full bg-[#DD0000] px-4 py-2 text-sm font-semibold text-white shadow transition hover:bg-[#c20000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2"
-          >
-            {siteConfig.whatsappLabel}
-          </Link>
+        <div className="ml-auto flex items-center text-[color:var(--header-link)] dark:text-white">
+          <MobileNav />
         </div>
-
-        <MobileNav />
       </div>
     </header>
   );
@@ -73,11 +81,26 @@ function MobileNav() {
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 text-sm font-semibold text-neutral-700 transition hover:border-neutral-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#DD0000] focus-visible:ring-offset-2"
+  className="flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--header-border)] bg-[color:var(--surface)] text-sm font-semibold text-[color:var(--header-link)] transition hover:border-[color:var(--header-link-muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--header-bg)] dark:border-white/15 dark:bg-transparent dark:text-neutral-100 dark:hover:border-white/40 dark:focus-visible:ring-offset-[#1f1f1f]"
         aria-label={open ? "Fechar menu" : "Abrir menu"}
         aria-expanded={open}
       >
-        Menu
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="lucide lucide-menu-icon lucide-menu"
+        >
+          <path d="M4 5h16" />
+          <path d="M4 12h16" />
+          <path d="M4 19h16" />
+        </svg>
       </button>
       <AnimatePresence>
         {open && (
@@ -86,7 +109,7 @@ function MobileNav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="absolute right-0 mt-3 w-72 rounded-2xl border border-neutral-100 bg-white p-4 shadow-2xl"
+            className="absolute right-0 mt-3 w-72 rounded-2xl border border-[color:var(--header-border)] bg-[color:var(--surface)] p-4 shadow-2xl shadow-[color:var(--card-shadow)] dark:border-white/10 dark:bg-[#1f1f1f] dark:shadow-none"
             aria-label="Menu móvel"
           >
             <ul className="flex flex-col gap-2">
@@ -95,22 +118,13 @@ function MobileNav() {
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="block rounded-xl px-3 py-2 text-sm font-medium text-neutral-700 transition hover:bg-neutral-50 hover:text-[#DD0000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#DD0000] focus-visible:ring-offset-2"
+                    className="block rounded-xl px-3 py-2 text-sm font-medium text-[color:var(--header-link-muted)] transition hover:bg-[color:var(--surface-soft)] hover:text-[color:var(--header-link-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface)] dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-brand-accent dark:focus-visible:ring-offset-[#1f1f1f]"
                   >
                     {item.label}
                   </Link>
                 </li>
               ))}
             </ul>
-            <div className="mt-4">
-              <Link
-                href={`https://wa.me/${siteConfig.whatsappNumber.replace("+", "")}`}
-                onClick={() => setOpen(false)}
-                className="inline-flex w-full items-center justify-center rounded-full bg-[#DD0000] px-4 py-2 text-sm font-semibold text-white shadow transition hover:bg-[#c20000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2"
-              >
-                {siteConfig.whatsappLabel}
-              </Link>
-            </div>
           </motion.nav>
         )}
       </AnimatePresence>

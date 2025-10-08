@@ -48,16 +48,16 @@ export default function ContatoPage() {
           </div>
           <ContactChannels />
         </div>
-        <div className="rounded-3xl border border-neutral-100 bg-white p-8 shadow-sm">
+        <div className="rounded-3xl border border-[color:var(--border-color)] bg-[color:var(--surface-muted)] p-8 shadow-[0_30px_65px_-35px_var(--card-shadow)] transition-colors dark:border-white/10 dark:bg-[#212121]">
           <ContactForm />
         </div>
       </div>
 
-      <div className="rounded-3xl border border-neutral-100 bg-gradient-to-br from-[#DD0000]/10 via-[#F77F00]/10 to-[#FCBF49]/10 p-10 text-center">
-        <h2 className="font-heading text-2xl font-semibold text-neutral-900">
+      <div className="rounded-3xl border border-[color:var(--border-color)] bg-[radial-gradient(circle_at_top_left,rgba(247,127,0,0.16),rgba(252,191,73,0.12),transparent_70%)] p-10 text-center shadow-[0_28px_60px_-35px_var(--card-shadow)] transition-colors dark:border-white/10 dark:bg-[#24201c]">
+        <h2 className="font-heading text-2xl font-semibold text-[color:var(--foreground)] dark:text-white">
           {contactContent.form.reassurance}
         </h2>
-        <p className="mt-3 text-sm text-neutral-600">
+        <p className="mt-3 text-sm text-[color:var(--text-secondary)] dark:text-neutral-200">
           Se preferir atendimento imediato, fale agora no WhatsApp. Estamos à disposição para orientar, esclarecer e caminhar com você em cada etapa.
         </p>
       </div>
