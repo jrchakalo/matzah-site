@@ -36,7 +36,7 @@ export default function ServicosPage() {
             title={servicesContent.title}
             description={servicesContent.intro}
           />
-          <p className="text-base text-neutral-600">
+          <p className="text-base text-neutral-600 dark:text-neutral-200">
             Atuamos com governança, métricas claras e acompanhamento próximo em todas as frentes do ciclo imobiliário e construtivo. Cada demanda é analisada com profundidade para indicar o caminho ideal e maximizar o retorno.
           </p>
         </div>
@@ -62,25 +62,25 @@ export default function ServicosPage() {
         </p>
       </section>
 
-      <section className="grid gap-10 rounded-3xl border border-neutral-100 bg-white/80 p-8 shadow-sm lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+  <section className="grid gap-10 rounded-3xl border border-neutral-100 bg-white/85 p-8 shadow-sm transition-colors lg:grid-cols-[0.9fr_1.1fr] lg:items-center dark:border-white/10 dark:bg-[#1f1f1f]">
         <div className="space-y-4">
-          <h2 className="font-heading text-3xl font-semibold text-neutral-900">
+          <h2 className="font-heading text-3xl font-semibold text-neutral-900 dark:text-white">
             Processo integrado que gera previsibilidade
           </h2>
-          <p className="text-base text-neutral-600">
+          <p className="text-base text-neutral-600 dark:text-neutral-200">
             Nossa metodologia conecta diagnóstico, planejamento, modelagem comercial, execução e pós-entrega, garantindo transparência e tomada de decisão baseada em dados.
           </p>
         </div>
         <ProcessTimeline />
       </section>
 
-      <section className="space-y-4 rounded-3xl border border-dashed border-neutral-200 bg-white/70 p-6 shadow-sm">
+      <section className="space-y-4 rounded-3xl border border-dashed border-neutral-200 bg-white/80 p-6 shadow-sm transition-colors dark:border-white/15 dark:bg-[#1f1f1f]">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <h3 className="font-heading text-xl font-semibold text-neutral-900">
-              Hubs especializados Matzah
+            <h3 className="font-heading text-xl font-semibold text-neutral-900 dark:text-white">
+              Sites da Matzah
             </h3>
-            <p className="text-sm text-neutral-600">
+            <p className="text-sm text-neutral-600 dark:text-neutral-200">
               Cada frente possui um endereço dedicado com conteúdo aprofundado, cases e formulários específicos para acelerar o atendimento.
             </p>
           </div>
@@ -92,7 +92,7 @@ export default function ServicosPage() {
               href={hub.url}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-700 transition hover:border-[#F77F00] hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2"
+              className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-700 transition hover:border-[#F77F00] hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-white/12 dark:bg-[#272727] dark:text-white/80 dark:hover:border-[#F77F00] dark:hover:text-[#F77F00] dark:focus-visible:ring-offset-[#121212]"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-[#DD0000]" aria-hidden />
               {hub.label}

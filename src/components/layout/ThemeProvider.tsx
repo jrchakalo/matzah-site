@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode } from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 interface ThemeProviderProps {
@@ -8,21 +8,15 @@ interface ThemeProviderProps {
 }
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <NextThemesProvider
       attribute="class"
-      defaultTheme="dark"
-      enableSystem={false}
+      defaultTheme="system"
+      enableSystem
       storageKey="matzah-theme"
       value={{ light: "light", dark: "dark" }}
     >
-      {mounted ? children : <div className="opacity-0">{children}</div>}
+      {children}
     </NextThemesProvider>
   );
 }

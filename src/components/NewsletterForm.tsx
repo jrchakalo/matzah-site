@@ -41,15 +41,17 @@ export function NewsletterForm({
       )}
       aria-labelledby="newsletter-title"
     >
-      <div className="h-full w-full rounded-3xl bg-white/95 p-8 sm:p-12">
+      <div className="h-full w-full rounded-3xl bg-white/95 p-8 shadow-sm sm:p-12 dark:bg-[#1f1f1f]/95">
         <div className="mx-auto max-w-2xl text-center sm:text-left">
           <h2
             id="newsletter-title"
-            className="font-heading text-2xl font-semibold text-neutral-900 sm:text-3xl"
+            className="font-heading text-2xl font-semibold text-neutral-900 sm:text-3xl dark:text-white"
           >
             {title}
           </h2>
-          <p className="mt-2 text-base text-neutral-600">{description}</p>
+          <p className="mt-2 text-base text-neutral-600 dark:text-neutral-200">
+            {description}
+          </p>
         </div>
 
         <form
@@ -66,7 +68,7 @@ export function NewsletterForm({
             name="email"
             required
             placeholder="nome@empresa.com"
-            className="flex-1 rounded-full border border-neutral-200 bg-white px-5 py-3 text-base text-neutral-800 shadow-sm placeholder:text-neutral-400 focus:border-[#DD0000] focus:outline-none focus:ring-2 focus:ring-[#F77F00]"
+            className="flex-1 rounded-full border border-neutral-200 bg-white px-5 py-3 text-base text-neutral-800 shadow-sm placeholder:text-neutral-400 focus:border-[#DD0000] focus:outline-none focus:ring-2 focus:ring-[#F77F00] dark:border-white/15 dark:bg-[#2a2a2a] dark:text-white dark:placeholder:text-neutral-400"
           />
           <button
             type="submit"
@@ -77,8 +79,8 @@ export function NewsletterForm({
           </button>
         </form>
 
-        <p className="mt-3 text-sm text-neutral-500">{privacy}</p>
-        <p className="mt-2 text-sm font-medium text-neutral-700">
+        <p className="mt-3 text-sm text-neutral-500 dark:text-neutral-300">{privacy}</p>
+        <p className="mt-2 text-sm font-medium text-neutral-700 dark:text-neutral-200">
           {status === "idle" && "Conteúdo relevante, sem spam."}
           {status === "loading" && "Carregando lista de contatos..."}
           {status === "success" && "Inscrição realizada com sucesso!"}

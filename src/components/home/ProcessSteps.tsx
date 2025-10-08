@@ -13,12 +13,14 @@ export function ProcessSteps() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.5, delay: index * 0.04, ease: "easeOut" }}
-          className="rounded-2xl border border-neutral-100 bg-white p-5 shadow-sm"
+          className="rounded-2xl border border-neutral-100 bg-white p-5 shadow-sm transition-colors dark:border-white/10 dark:bg-[#212121]"
         >
           <span className="text-sm font-semibold text-[#DD0000]">
             Etapa {index + 1}
           </span>
-          <p className="mt-2 text-base font-medium text-neutral-800">{step}</p>
+          <p className="mt-2 text-base font-medium text-neutral-800 dark:text-neutral-100">
+            {step}
+          </p>
         </motion.div>
       ))}
     </div>

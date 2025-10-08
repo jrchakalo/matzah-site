@@ -13,13 +13,15 @@ export function ValueHighlights() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.05 }}
-          className="group relative overflow-hidden rounded-3xl border border-neutral-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+          className="group relative overflow-hidden rounded-3xl border border-neutral-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-[#212121]"
         >
           <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#F77F00]/0 via-[#FCBF49]/0 to-[#DD0000]/10 opacity-0 transition group-hover:opacity-100" />
-          <h3 className="font-heading text-xl font-semibold text-neutral-900">
+          <h3 className="font-heading text-xl font-semibold text-neutral-900 dark:text-white">
             {item.title}
           </h3>
-          <p className="mt-3 text-sm text-neutral-600">{item.description}</p>
+          <p className="mt-3 text-sm text-neutral-600 dark:text-neutral-200">
+            {item.description}
+          </p>
         </motion.article>
       ))}
     </div>

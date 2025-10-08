@@ -32,15 +32,15 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <span className="inline-flex rounded-full bg-[#FCBF49]/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#DD0000]">
+        <span className="inline-flex rounded-full bg-[#FCBF49]/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#DD0000] dark:bg-[#FCBF49]/15 dark:text-[#F77F00]">
           {eyebrow}
         </span>
       )}
-      <h2 className="font-heading text-3xl font-semibold text-neutral-900 sm:text-4xl">
+      <h2 className="font-heading text-3xl font-semibold text-neutral-900 sm:text-4xl dark:text-white">
         {title}
       </h2>
       {description && (
-        <p className="max-w-2xl text-base text-neutral-600 sm:text-lg">
+        <p className="max-w-2xl text-base text-neutral-600 sm:text-lg dark:text-neutral-200">
           {description}
         </p>
       )}

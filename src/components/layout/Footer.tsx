@@ -5,13 +5,13 @@ import { Container } from "./Container";
 
 export function Footer() {
   return (
-    <footer className="bg-neutral-900 text-neutral-100 transition-colors duration-300 dark:bg-black">
+    <footer className="bg-[#171514] text-neutral-100 transition-colors duration-300 dark:bg-[#0d0d0d]">
       <Container className="grid gap-10 py-12 lg:grid-cols-4">
         <div className="space-y-4">
           <div className="flex items-center gap-3">
             <span className="relative flex h-14 w-44 items-center">
               <Image
-                src="/matzah-logo.png"
+                src="/matzah-logo-branco.png"
                 alt="Logotipo da Matzah Empreendimentos & Construções"
                 fill
                 sizes="176px"

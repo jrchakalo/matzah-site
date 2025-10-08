@@ -17,19 +17,21 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.03 }}
-      className="flex h-full flex-col rounded-3xl border border-neutral-100 bg-white p-6 shadow-sm"
+  className="flex h-full flex-col rounded-3xl border border-neutral-100 bg-white p-6 shadow-sm transition-colors dark:border-white/10 dark:bg-[#212121]"
     >
       <span className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-400">
         {String(index + 1).padStart(2, "0")}
       </span>
-      <h3 className="mt-2 font-heading text-2xl font-semibold text-neutral-900">
+      <h3 className="mt-2 font-heading text-2xl font-semibold text-neutral-900 dark:text-white">
         {service.name}
       </h3>
-      <p className="mt-4 text-sm text-neutral-600">{service.description}</p>
+      <p className="mt-4 text-sm text-neutral-600 dark:text-neutral-200">
+        {service.description}
+      </p>
       <div className="mt-6 flex flex-wrap items-center gap-3">
         <Link
           href={service.cta.href}
-          className="inline-flex items-center gap-2 rounded-full bg-[#DD0000]/10 px-4 py-2 text-sm font-semibold text-[#DD0000] transition hover:bg-[#DD0000]/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2"
+          className="inline-flex items-center gap-2 rounded-full bg-[#DD0000]/10 px-4 py-2 text-sm font-semibold text-[#DD0000] transition hover:bg-[#DD0000]/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#121212]"
         >
           {service.cta.label}
           <span aria-hidden>→</span>
@@ -39,9 +41,9 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
             href={service.hubUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-600 transition hover:border-[#F77F00] hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2"
+            className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-600 transition hover:border-[#F77F00] hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-white/15 dark:bg-[#272727] dark:text-white/80 dark:hover:border-[#F77F00] dark:hover:text-[#F77F00] dark:focus-visible:ring-offset-[#121212]"
           >
-            Hub dedicado
+            Acesse o site
             <span aria-hidden>↗</span>
           </Link>
         ) : null}

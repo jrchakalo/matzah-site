@@ -50,7 +50,7 @@ export function ContactForm() {
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="flex flex-col">
-          <label htmlFor="name" className="text-sm font-semibold text-neutral-800">
+          <label htmlFor="name" className="text-sm font-semibold text-neutral-800 dark:text-neutral-200">
             Nome completo
           </label>
           <input
@@ -60,11 +60,11 @@ export function ContactForm() {
             required
             autoComplete="name"
             placeholder="Seu nome"
-            className="mt-2 rounded-2xl border border-neutral-200 px-4 py-3 text-sm text-neutral-800 shadow-sm focus:border-[#DD0000] focus:outline-none focus:ring-2 focus:ring-[#F77F00]"
+            className="mt-2 rounded-2xl border border-neutral-200 px-4 py-3 text-sm text-neutral-800 shadow-sm focus:border-[#DD0000] focus:outline-none focus:ring-2 focus:ring-[#F77F00] dark:border-white/15 dark:bg-[#2a2a2a] dark:text-white"
           />
         </div>
         <div className="flex flex-col">
-          <label htmlFor="email" className="text-sm font-semibold text-neutral-800">
+          <label htmlFor="email" className="text-sm font-semibold text-neutral-800 dark:text-neutral-200">
             E-mail
           </label>
           <input
@@ -74,13 +74,13 @@ export function ContactForm() {
             required
             autoComplete="email"
             placeholder="nome@empresa.com"
-            className="mt-2 rounded-2xl border border-neutral-200 px-4 py-3 text-sm text-neutral-800 shadow-sm focus:border-[#DD0000] focus:outline-none focus:ring-2 focus:ring-[#F77F00]"
+            className="mt-2 rounded-2xl border border-neutral-200 px-4 py-3 text-sm text-neutral-800 shadow-sm focus:border-[#DD0000] focus:outline-none focus:ring-2 focus:ring-[#F77F00] dark:border-white/15 dark:bg-[#2a2a2a] dark:text-white"
           />
         </div>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="flex flex-col">
-          <label htmlFor="phone" className="text-sm font-semibold text-neutral-800">
+          <label htmlFor="phone" className="text-sm font-semibold text-neutral-800 dark:text-neutral-200">
             Telefone / WhatsApp
           </label>
           <input
@@ -90,18 +90,18 @@ export function ContactForm() {
             required
             autoComplete="tel"
             placeholder="(81) 99999-9999"
-            className="mt-2 rounded-2xl border border-neutral-200 px-4 py-3 text-sm text-neutral-800 shadow-sm focus:border-[#DD0000] focus:outline-none focus:ring-2 focus:ring-[#F77F00]"
+            className="mt-2 rounded-2xl border border-neutral-200 px-4 py-3 text-sm text-neutral-800 shadow-sm focus:border-[#DD0000] focus:outline-none focus:ring-2 focus:ring-[#F77F00] dark:border-white/15 dark:bg-[#2a2a2a] dark:text-white"
           />
         </div>
         <div className="flex flex-col">
-          <label htmlFor="subject" className="text-sm font-semibold text-neutral-800">
+          <label htmlFor="subject" className="text-sm font-semibold text-neutral-800 dark:text-neutral-200">
             Assunto
           </label>
           <select
             id="subject"
             name="subject"
             required
-            className="mt-2 rounded-2xl border border-neutral-200 px-4 py-3 text-sm text-neutral-800 shadow-sm focus:border-[#DD0000] focus:outline-none focus:ring-2 focus:ring-[#F77F00]"
+            className="mt-2 rounded-2xl border border-neutral-200 px-4 py-3 text-sm text-neutral-800 shadow-sm focus:border-[#DD0000] focus:outline-none focus:ring-2 focus:ring-[#F77F00] dark:border-white/15 dark:bg-[#2a2a2a] dark:text-white"
             defaultValue=""
           >
             <option value="" disabled>
@@ -116,7 +116,7 @@ export function ContactForm() {
         </div>
       </div>
       <div className="flex flex-col">
-        <label htmlFor="message" className="text-sm font-semibold text-neutral-800">
+        <label htmlFor="message" className="text-sm font-semibold text-neutral-800 dark:text-neutral-200">
           Mensagem
         </label>
         <textarea
@@ -125,31 +125,31 @@ export function ContactForm() {
           required
           rows={5}
           placeholder="Conte-nos como podemos ajudar"
-          className="mt-2 rounded-2xl border border-neutral-200 px-4 py-3 text-sm text-neutral-800 shadow-sm focus:border-[#DD0000] focus:outline-none focus:ring-2 focus:ring-[#F77F00]"
+          className="mt-2 rounded-2xl border border-neutral-200 px-4 py-3 text-sm text-neutral-800 shadow-sm focus:border-[#DD0000] focus:outline-none focus:ring-2 focus:ring-[#F77F00] dark:border-white/15 dark:bg-[#2a2a2a] dark:text-white"
         />
       </div>
       <div className="flex flex-wrap gap-3">
         <button
           type="submit"
-          className="inline-flex items-center justify-center rounded-full bg-[#DD0000] px-6 py-3 text-sm font-semibold text-white shadow transition hover:bg-[#c20000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2"
+          className="inline-flex items-center justify-center rounded-full bg-[#DD0000] px-6 py-3 text-sm font-semibold text-white shadow transition hover:bg-[#c20000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#151515]"
           disabled={status === "loading"}
         >
           {status === "loading" ? "Enviando..." : contactContent.form.submitLabel}
         </button>
         <a
           href={`https://wa.me/${siteConfig.whatsappNumber.replace("+", "")}`}
-          className="inline-flex items-center justify-center rounded-full border border-neutral-200 px-6 py-3 text-sm font-semibold text-neutral-800 transition hover:border-[#F77F00] hover:text-[#DD0000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2"
+          className="inline-flex items-center justify-center rounded-full border border-neutral-200 px-6 py-3 text-sm font-semibold text-neutral-800 transition hover:border-[#F77F00] hover:text-[#DD0000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-white/15 dark:text-white dark:hover:border-[#F77F00] dark:hover:text-[#F77F00] dark:focus-visible:ring-offset-[#151515]"
         >
           {contactContent.form.whatsappLabel}
         </a>
         <a
           href="https://cal.com/matzah/consultoria"
-          className="inline-flex items-center justify-center rounded-full border border-neutral-200 px-6 py-3 text-sm font-semibold text-neutral-800 transition hover:border-[#F77F00] hover:text-[#DD0000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2"
+          className="inline-flex items-center justify-center rounded-full border border-neutral-200 px-6 py-3 text-sm font-semibold text-neutral-800 transition hover:border-[#F77F00] hover:text-[#DD0000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-white/15 dark:text-white dark:hover:border-[#F77F00] dark:hover:text-[#F77F00] dark:focus-visible:ring-offset-[#151515]"
         >
           {contactContent.form.scheduleLabel}
         </a>
       </div>
-      <p className="text-sm text-neutral-500">{contactContent.form.privacy}</p>
+      <p className="text-sm text-neutral-500 dark:text-neutral-300">{contactContent.form.privacy}</p>
       <p className="text-sm font-semibold text-[#DD0000]">
         {status === "idle" && contactContent.form.reassurance}
         {status === "loading" && "Carregando informações..."}

@@ -23,7 +23,7 @@ export function HomeServicesShowcase() {
   }));
 
   return (
-    <section className="relative overflow-hidden rounded-[2.5rem] border border-neutral-200/60 bg-white/90 p-8 shadow-lg backdrop-blur lg:p-12 dark:border-white/10 dark:bg-white/5">
+    <section className="relative overflow-hidden rounded-[2.5rem] border border-neutral-200/70 bg-[var(--surface-muted)] p-8 shadow-lg backdrop-blur lg:p-12 dark:border-white/10 dark:bg-[#1e1e1e]">
       <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
         <div className="space-y-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-neutral-200/80 bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 dark:border-white/10 dark:bg-white/10 dark:text-white/70">
@@ -50,7 +50,7 @@ export function HomeServicesShowcase() {
             </Link>
             <Link
               href={"/contato?assunto=servicos"}
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-neutral-200/80 bg-white px-5 py-3 text-sm font-semibold text-neutral-900 transition hover:border-[#F77F00] hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:border-[#F77F00] dark:hover:text-[#F77F00] dark:focus-visible:ring-offset-[#0E0E10]"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-neutral-200 bg-white px-5 py-3 text-sm font-semibold text-neutral-900 transition hover:border-[#F77F00] hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-white/12 dark:bg-[#272727] dark:text-white dark:hover:border-[#F77F00] dark:hover:text-[#F77F00] dark:focus-visible:ring-offset-[#0E0E10]"
             >
               Construir uma solução sob medida
               <span aria-hidden>↗</span>
@@ -58,7 +58,7 @@ export function HomeServicesShowcase() {
           </div>
           <div className="mt-6 space-y-2">
             <span className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-white/40">
-              Hubs especializados
+              Sites Matzah
             </span>
             <div className="flex flex-wrap gap-2">
               {servicesContent.hubs?.map((hub) => (
@@ -67,10 +67,11 @@ export function HomeServicesShowcase() {
                   href={hub.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-neutral-200/70 bg-white px-4 py-2 text-xs font-semibold text-neutral-700 transition hover:border-[#F77F00] hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-white/10 dark:bg-white/5 dark:text-white/70 dark:hover:border-[#F77F00] dark:hover:text-[#F77F00] dark:focus-visible:ring-offset-[#0E0E10]"
+                  className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-2 text-xs font-semibold text-neutral-700 transition hover:border-[#F77F00] hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-white/12 dark:bg-[#272727] dark:text-white/80 dark:hover:border-[#F77F00] dark:hover:text-[#F77F00] dark:focus-visible:ring-offset-[#0E0E10]"
                 >
                   <span className="h-1.5 w-1.5 rounded-full bg-[#DD0000]" aria-hidden />
                   {hub.label}
+                  <span aria-hidden>↗</span>
                 </Link>
               ))}
             </div>
@@ -107,9 +108,9 @@ export function HomeServicesShowcase() {
                     href={service.hubUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold text-white/80 transition hover:border-white/60 hover:bg-white/20"
+                    className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold text-white/85 transition hover:border-white/60 hover:bg-white/20"
                   >
-                    Hub dedicado
+                    Acesse o site
                     <span aria-hidden>↗</span>
                   </Link>
                 ) : null}

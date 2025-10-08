@@ -98,7 +98,8 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${poppins.variable} flex min-h-screen flex-col bg-neutral-100 text-neutral-900 antialiased transition-colors duration-300 dark:bg-neutral-950 dark:text-neutral-50`}
+        className={`${inter.variable} ${poppins.variable} flex min-h-screen flex-col antialiased transition-colors duration-300`}
+        style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}
       >
         <ThemeProvider>
           <Header />
