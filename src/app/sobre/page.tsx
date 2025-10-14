@@ -72,7 +72,7 @@ export default function SobrePage() {
         <div className="space-y-6">
           <div className="overflow-hidden rounded-3xl ring-1 ring-[color:var(--border-color)] dark:ring-white/10">
             <Image
-              src="/images/obra-andamento.jpg"
+              src="/images/quem.jpg"
               alt="Estrutura de construção com equipe técnica"
               width={720}
               height={540}

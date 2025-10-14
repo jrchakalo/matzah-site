@@ -42,7 +42,7 @@ export default function ServicosPage() {
         </div>
         <div className="relative overflow-hidden rounded-3xl">
           <Image
-            src="/images/empreendimento-bezerros.jpg"
+            src="/images/serviços.jpg"
             alt="Fachada do empreendimento Residencial Jardim das Serras em Bezerros"
             width={720}
             height={540}

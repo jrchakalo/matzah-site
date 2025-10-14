@@ -14,13 +14,13 @@ import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
   title:
-    "Imobiliária e Construção em Bezerros | Matzah Empreendimentos & Construções",
+    "Matzah Empreendimentos & Construções | Imobiliária e Construção em Bezerros",
   description:
     "Matzah Empreendimentos em Bezerros-PE: imóveis, construção civil, avaliações, arquitetura, financiamento e desenvolvimento de projetos com fé, transparência e excelência.",
   keywords: siteConfig.keywords.primary,
   openGraph: {
     title:
-      "Imobiliária e Construção em Bezerros | Matzah Empreendimentos & Construções",
+      "Matzah Empreendimentos & Construções | Imobiliária e Construção em Bezerros",
     description:
       "Matzah Empreendimentos em Bezerros-PE: imóveis, construção civil, avaliações, arquitetura, financiamento e desenvolvimento de projetos com fé, transparência e excelência.",
     images: [
