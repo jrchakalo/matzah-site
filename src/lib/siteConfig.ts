@@ -19,8 +19,7 @@ export const siteConfig = {
     country: "Brasil",
   },
   social: {
-    instagram: "https://www.instagram.com/matzahempreendimentos",
-    linkedin: "https://www.linkedin.com/company/matzah-empreendimentos",
+    instagram: "https://www.instagram.com/matzahsolucoesimobiliarias/",
   },
   navigation: [
     { label: "Home", href: "/" },

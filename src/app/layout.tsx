@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default:
-      "Imobiliária e Construção em Bezerros | Matzah Empreendimentos & Construções",
+      "Matzah Empreendimentos & Construções | Imobiliária e Construção em Bezerros",
     template: "%s | Matzah Empreendimentos & Construções",
   },
   description: siteConfig.description,
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Imobiliária e Construção em Bezerros | Matzah Empreendimentos & Construções",
+      "Matzah Empreendimentos & Construções | Imobiliária e Construção em Bezerros",
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
@@ -56,8 +56,13 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Imobiliária e Construção em Bezerros | Matzah Empreendimentos & Construções",
+      "Matzah Empreendimentos & Construções | Imobiliária e Construção em Bezerros",
     description: siteConfig.description,
+  },
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   robots: {
     index: true,
@@ -71,7 +76,7 @@ const organizationSchema = {
   name: siteConfig.name,
   url: siteConfig.url,
   logo: `${siteConfig.url}/matzah-logo.png`,
-  sameAs: [siteConfig.social.instagram, siteConfig.social.linkedin],
+  sameAs: [siteConfig.social.instagram],
   address: {
     "@type": "PostalAddress",
     streetAddress: siteConfig.address.street,

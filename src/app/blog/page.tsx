@@ -42,7 +42,7 @@ export default function BlogPage() {
         </div>
         <div className="relative overflow-hidden rounded-3xl">
           <Image
-            src="/images/blog-conteudo.jpg"
+            src="/images/blog.jpg"
             alt="Equipe analisando gráficos e tendências do mercado imobiliário"
             width={720}
             height={540}
