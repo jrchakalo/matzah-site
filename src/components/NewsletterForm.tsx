@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface NewsletterFormProps {
+  id?: string;
   title?: string;
   description?: string;
   privacy?: string;
@@ -12,25 +13,70 @@ interface NewsletterFormProps {
 }
 
 export function NewsletterForm({
+  id = "newsletter",
   title = "Receba novidades e insights",
   description = "Atualizações quinzenais sobre imóveis, construção e investimentos.",
   privacy = "Utilizamos seus dados apenas para envio de conteúdo e você pode cancelar a qualquer momento.",
   className,
 }: NewsletterFormProps) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [successMessage, setSuccessMessage] = useState("Inscrição realizada com sucesso!");
+  const [errorMessage, setErrorMessage] = useState("Erro ao enviar. Tente novamente ou use o WhatsApp.");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    if (status === "loading") {
+      return;
+    }
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const email = String(formData.get("email") ?? "").trim();
+
+    if (!email) {
+      setErrorMessage("Informe um e-mail válido antes de assinar.");
+      setStatus("error");
+      return;
+    }
+
     setStatus("loading");
 
-    // Simulação de envio
-    setTimeout(() => {
+    try {
+      const endpoint = "https://formsubmit.co/ajax/contato@matzah.com.br";
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          email,
+          _subject: "📰 Nova assinatura — Newsletter do site",
+          _template: "table",
+          _language: "pt",
+          _captcha: false,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorPayload = await response.json().catch(() => ({}));
+        setErrorMessage(errorPayload?.message ?? "Não foi possível concluir a inscrição agora.");
+        setStatus("error");
+        return;
+      }
+
+      await response.json().catch(() => ({}));
+      setSuccessMessage("Inscrição realizada! Você receberá um e-mail sempre que novos conteúdos forem publicados.");
       setStatus("success");
-    }, 1000);
+      form.reset();
+    } catch (error) {
+      console.error("Newsletter subscription error", error);
+      setErrorMessage("Não conseguimos salvar sua inscrição. Tente novamente em instantes.");
+      setStatus("error");
+    }
   }
 
   return (
     <motion.section
+      id={id}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.4 }}
@@ -83,8 +129,8 @@ export function NewsletterForm({
         <p className="mt-2 text-sm font-medium text-[color:var(--text-secondary)] dark:text-neutral-200">
           {status === "idle" && "Conteúdo relevante, sem spam."}
           {status === "loading" && "Carregando lista de contatos..."}
-          {status === "success" && "Inscrição realizada com sucesso!"}
-          {status === "error" && "Erro ao enviar. Tente novamente ou use o WhatsApp."}
+          {status === "success" && successMessage}
+          {status === "error" && errorMessage}
         </p>
       </div>
     </motion.section>

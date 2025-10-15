@@ -6,7 +6,7 @@ export const heroContent = {
     "Somos uma empresa pernambucana que une propósito, inovação e compromisso cristão para desenvolver, representar e construir empreendimentos que valorizam pessoas, espaços e cidades.",
   primaryCtas: [
     { label: "Ver Empreendimentos", href: "/empreendimentos" },
-    { label: "Falar no WhatsApp", href: "https://wa.me/5581999999999" },
+    { label: "Falar no WhatsApp", href: "https://wa.me/5581999355932" },
   ],
   secondaryLinks: [
     { label: "Solicitar Avaliação de Imóvel", href: "/contato?assunto=avaliacao" },

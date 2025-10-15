@@ -68,8 +68,9 @@ export default function HomePage() {
         <BlogPreview />
       </Container>
 
-      <Container id="newsletter" className="mt-16 lg:mt-24">
+      <Container className="mt-16 lg:mt-24">
         <NewsletterForm
+          id="newsletter-home"
           title="Receba novos conteúdos no seu e-mail"
           description="Insights sobre avaliação, financiamento, construção, arquitetura e desenvolvimento imobiliário em Pernambuco."
           privacy="Utilizamos seus dados apenas para envio de conteúdo e você pode cancelar a qualquer momento."
