@@ -6,7 +6,7 @@ export const siteConfig = {
     "Imobiliária, construção, avaliações, arquitetura, financiamento e desenvolvimento de empreendimentos com fé, transparência e excelência em Bezerros-PE.",
   url: "https://www.matzah.com.br",
   locale: "pt_BR",
-  whatsappNumber: "+5581999999999",
+  whatsappNumber: "+5581999355932",
   whatsappLabel: "Falar no WhatsApp",
   email: "contato@matzah.com.br",
   phone: "(81) 4000-0000",
@@ -19,7 +19,7 @@ export const siteConfig = {
     country: "Brasil",
   },
   social: {
-    instagram: "https://www.instagram.com/matzahsolucoesimobiliarias/",
+    instagram: "https://www.instagram.com/matzahempreendimentos/",
   },
   navigation: [
     { label: "Home", href: "/" },

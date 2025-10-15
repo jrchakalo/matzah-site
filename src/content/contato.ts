@@ -1,4 +1,8 @@
 import { siteConfig } from "@/lib/siteConfig";
+import { buildWhatsAppLink } from "@/lib/utils";
+
+const defaultWhatsAppMessage = "Olá! Gostaria de entrar em contato com algum representante Matzah!";
+const meetingWhatsAppMessage = "Olá! Gostaria de agendar uma reunião com um dos representantes Matzah!";
 
 export const contactContent = {
   title: "Fale Conosco",
@@ -7,9 +11,9 @@ export const contactContent = {
   channels: [
     {
       label: "WhatsApp",
-      value: "+55 (81) 99999-9999",
+      value: "+55 (81) 99935-5932",
       description: "Resposta rápida em horário comercial.",
-      href: `https://wa.me/${siteConfig.whatsappNumber.replace("+", "")}`,
+      href: buildWhatsAppLink(siteConfig.whatsappNumber, defaultWhatsAppMessage),
     },
     {
       label: "E-mail",
@@ -41,5 +45,9 @@ export const contactContent = {
     whatsappLabel: "Chamar no WhatsApp",
     scheduleLabel: "Agendar Reunião",
     reassurance: "Preferimos conversar com calma a prometer algo que não podemos entregar.",
+    whatsappMessage: defaultWhatsAppMessage,
+    scheduleMessage: meetingWhatsAppMessage,
   },
+  whatsappMessage: defaultWhatsAppMessage,
+  meetingMessage: meetingWhatsAppMessage,
 };
