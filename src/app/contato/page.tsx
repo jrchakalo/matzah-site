@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function ContatoPage() {
   return (
-    <Container className="space-y-16 lg:space-y-24">
+    <Container className="space-y-8 lg:space-y-10 pt-24 sm:pt-28 pb-20">
       <SectionHeading
         eyebrow="Atendimento"
         title={contactContent.title}

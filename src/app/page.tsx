@@ -4,9 +4,8 @@ import { Hero } from "@/components/home/Hero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ValueHighlights } from "@/components/home/ValueHighlights";
 import { AboutMini } from "@/components/home/AboutMini";
-import { HomeServicesShowcase } from "@/components/home/HomeServicesShowcase";
+import { CompaniesShowcase } from "@/components/home/CompaniesShowcase";
 import { ProcessSteps } from "@/components/home/ProcessSteps";
-import { TestimonialsPreview } from "@/components/home/TestimonialsPreview";
 import { BlogPreview } from "@/components/home/BlogPreview";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { trustMicrocopy } from "@/content/home";
@@ -37,10 +36,10 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <Container className="space-y-16 lg:space-y-24">
+      <Container className="space-y-16 lg:space-y-24 pt-24 sm:pt-28 pb-20">
         <Hero />
 
-        <HomeServicesShowcase />
+        <CompaniesShowcase />
 
         <section className="space-y-10">
           <SectionHeading
@@ -60,15 +59,15 @@ export default function HomePage() {
             description="Acompanhamos todas as etapas com governança, métricas e transparência para entregar mais valor e menos retrabalho."
           />
           <ProcessSteps />
-          <p className="text-sm font-semibold text-[#DD0000]">{trustMicrocopy}</p>
+          {trustMicrocopy && (
+            <p className="text-sm font-semibold text-[#DD0000]">{trustMicrocopy}</p>
+          )}
         </section>
-
-        <TestimonialsPreview />
 
         <BlogPreview />
       </Container>
 
-      <Container className="mt-16 lg:mt-24">
+      <Container className="mt-16 lg:mt-24 pb-20">
         <NewsletterForm
           id="newsletter-home"
           title="Receba novos conteúdos no seu e-mail"

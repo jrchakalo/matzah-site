@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { NewsletterForm } from "@/components/NewsletterForm";
-import { blogContent } from "@/content/blog";
+import { getAllPostsFromDB } from "@/lib/supabase";
 import { siteConfig } from "@/lib/siteConfig";
+import { Clock, Calendar, User, ArrowRight } from "lucide-react";
+
+export const revalidate = 0; // Sempre busca dados mais recentes
 
 export const metadata: Metadata = {
   title: "Blog Matzah | Conteúdo Imobiliário, Construção e Investimento",
@@ -26,92 +28,104 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const posts = await getAllPostsFromDB();
+
   return (
-    <Container className="space-y-16 lg:space-y-24">
-      <section className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-        <div className="space-y-6">
+    <>
+      <Container className="pt-24 sm:pt-28 pb-20">
+        <div className="text-center mb-12 max-w-4xl mx-auto">
           <SectionHeading
-            eyebrow="Conteúdo"
-            title={blogContent.title}
-            description={blogContent.introduction}
+            eyebrow="Blog"
+            title="Insights e Análises do Mercado Imobiliário"
+            description="Conteúdo especializado sobre financiamento, avaliação, desenvolvimento de empreendimentos e tendências do setor imobiliário em Pernambuco."
+            align="center"
           />
-          <p className="text-sm text-[color:var(--text-secondary)] dark:text-neutral-300">
-            Atualizamos este espaço com periodicidade quinzenal, priorizando análises profundas, dados de mercado e orientações práticas para investidores, empreendedores e famílias pernambucanas.
+        </div>
+
+        {/* Grid de Posts */}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-16">
+          {posts.map((post) => (
+            <Link
+              key={post.id}
+              href={`/blog/${post.slug}`}
+              className="group flex flex-col overflow-hidden rounded-xl border border-[color:var(--border-color)] bg-[color:var(--surface)] transition-all hover:border-[#F77F00]/50 hover:shadow-[0_28px_60px_-32px_var(--card-shadow)] dark:border-white/10 dark:bg-[#212121]"
+            >
+              {/* Imagem */}
+              <div className="aspect-video w-full overflow-hidden bg-[color:var(--surface-soft)]">
+                {post.cover_image ? (
+                  <img
+                    src={post.cover_image}
+                    alt={post.title}
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="flex h-full items-center justify-center bg-gradient-to-br from-[#DD0000]/10 to-[#F77F00]/10">
+                    <span className="text-4xl font-bold text-white/20">
+                      {post.category[0]}
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              {/* Conteúdo */}
+              <div className="flex flex-1 flex-col p-6">
+                <div className="mb-3 inline-flex">
+                  <span className="rounded-full bg-[#DD0000]/10 border border-[#DD0000]/20 px-3 py-1 text-xs font-medium text-[#DD0000]">
+                    {post.category}
+                  </span>
+                </div>
+
+                <h3 className="mb-3 text-xl font-bold text-white transition-colors group-hover:text-[#F77F00]">
+                  {post.title}
+                </h3>
+
+                <p className="mb-4 flex-1 text-sm leading-relaxed text-gray-400">
+                  {post.excerpt}
+                </p>
+
+                <div className="flex flex-wrap items-center gap-4 border-t border-[color:var(--border-color)] pt-4 text-gray-400">
+                  <div className="flex items-center gap-1.5 text-xs">
+                    <Clock className="h-4 w-4" />
+                    <span>{post.read_time}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs">
+                    <Calendar className="h-4 w-4" />
+                    <span>
+                      {new Date(post.date + 'T00:00:00').toLocaleDateString("pt-BR", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                      })}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs">
+                    <User className="h-4 w-4" />
+                    <span>{post.author}</span>
+                  </div>
+                </div>
+
+                <div className="mt-4 flex items-center gap-2 text-sm font-medium text-[#DD0000] group-hover:text-[#F77F00] transition-colors">
+                  Ler artigo
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Newsletter */}
+        <div className="mx-auto max-w-2xl rounded-2xl border border-[color:var(--border-color)] bg-[color:var(--surface)] p-8 text-center shadow-[0_28px_60px_-35px_var(--card-shadow)] dark:border-white/10 dark:bg-[#212121]">
+          <h3 className="mb-3 text-2xl font-bold text-white">
+            Receba Novidades no Email
+          </h3>
+          <p className="mb-6 text-gray-400">
+            Artigos, análises de mercado e dicas exclusivas direto na sua caixa
+            de entrada.
           </p>
+          <NewsletterForm />
         </div>
-        <div className="relative overflow-hidden rounded-3xl">
-          <Image
-            src="/images/blog.jpg"
-            alt="Equipe analisando gráficos e tendências do mercado imobiliário"
-            width={720}
-            height={540}
-            className="h-full w-full object-cover"
-            priority
-          />
-        </div>
-      </section>
-
-      <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {blogContent.posts.map((post) => (
-          <article
-            key={post.slug}
-            id={post.slug}
-            className="flex h-full flex-col gap-4 rounded-3xl border border-[color:var(--border-color)] bg-[color:var(--surface-muted)] p-6 shadow-[0_30px_60px_-38px_var(--card-shadow)] transition-colors dark:border-white/10 dark:bg-[#212121]"
-          >
-            <div className="flex items-center justify-between gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--header-link-muted)]">
-              <span className="text-[color:var(--text-tertiary)] dark:text-neutral-400">{post.category}</span>
-              <span className="flex items-center gap-2 text-[color:var(--text-tertiary)] dark:text-neutral-300">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#DD0000]" aria-hidden />
-                {post.readTime}
-              </span>
-            </div>
-            <h2 className="font-heading text-xl font-semibold text-[color:var(--foreground)] dark:text-white">
-              {post.title}
-            </h2>
-            <p className="text-sm text-[color:var(--text-secondary)] dark:text-neutral-200">{post.excerpt}</p>
-            <div className="space-y-3 text-sm leading-relaxed text-[color:var(--text-secondary)] dark:text-neutral-200">
-              {post.body.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-            <div className="pt-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--header-link-muted)] dark:text-neutral-300">
-                Em resumo
-              </p>
-              <ul className="mt-2 space-y-2 text-sm text-[color:var(--text-secondary)] dark:text-neutral-200">
-                {post.takeaways.map((item) => (
-                  <li key={item} className="flex items-start gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#DD0000]" aria-hidden />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="mt-auto flex flex-wrap gap-3 pt-4">
-              <Link
-                href={`/contato?assunto=conteudo&tema=${post.slug}`}
-                className="inline-flex items-center gap-2 rounded-full bg-[#DD0000] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#c20000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface-muted)] dark:focus-visible:ring-offset-[#141414]"
-              >
-                Falar com um especialista
-              </Link>
-              <Link
-                href="#newsletter"
-                className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border-color)] bg-[color:var(--surface)] px-4 py-2 text-sm font-semibold text-[color:var(--header-link)] transition hover:border-[#F77F00] hover:text-[#DD0000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:border-white/15 dark:text-white dark:hover:border-[#F77F00] dark:hover:text-[#F77F00] dark:focus-visible:ring-offset-[#141414]"
-              >
-                Assinar novos conteúdos
-              </Link>
-            </div>
-          </article>
-        ))}
-      </section>
-
-      <NewsletterForm
-        title={blogContent.newsletterCopy}
-        description="Cadastre-se para receber novidades, relatórios e convites para eventos exclusivos."
-        privacy={blogContent.privacyCopy}
-        className="mx-auto max-w-4xl"
-      />
-    </Container>
+      </Container>
+    </>
   );
 }

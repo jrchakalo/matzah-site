@@ -65,7 +65,7 @@ export function Header() {
           })}
         </nav>
 
-        <div className="ml-auto flex items-center text-[color:var(--header-link)] dark:text-white">
+        <div className="ml-auto flex items-center gap-3 text-[color:var(--header-link)] dark:text-white">
           <MobileNav />
         </div>
       </div>

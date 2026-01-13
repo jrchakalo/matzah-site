@@ -51,7 +51,10 @@ export function SectionHeading({
         {title}
       </h2>
       {description && (
-        <p className="max-w-2xl text-base text-[color:var(--text-secondary)] sm:text-lg dark:text-neutral-200">
+        <p className={cn(
+          "max-w-2xl text-base text-[color:var(--text-secondary)] sm:text-lg dark:text-neutral-200",
+          align === "center" && "mx-auto"
+        )}>
           {description}
         </p>
       )}

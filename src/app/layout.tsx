@@ -106,7 +106,7 @@ export default function RootLayout({
         style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}
       >
         <Header />
-        <main className="flex-1 pb-20 pt-24 sm:pt-28">{children}</main>
+        <main className="flex-1">{children}</main>
         <Footer />
         <FloatingWhatsApp />
         <script

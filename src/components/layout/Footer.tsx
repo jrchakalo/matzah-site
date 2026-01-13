@@ -46,13 +46,10 @@ export function Footer() {
               <strong className="text-[color:var(--header-link)] dark:text-white">E-mail:</strong> {siteConfig.email}
             </li>
             <li>
-              <strong className="text-[color:var(--header-link)] dark:text-white">Telefone:</strong> {siteConfig.phone}
+              <strong className="text-[color:var(--header-link)] dark:text-white">Telefone / WhatsApp:</strong> {siteConfig.phone}
             </li>
             <li>
-              <strong className="text-[color:var(--header-link)] dark:text-white">Endereço:</strong> {siteConfig.address.street}, {siteConfig.address.neighborhood}, {siteConfig.address.city} - {siteConfig.address.state}
-            </li>
-            <li>
-              <strong className="text-[color:var(--header-link)] dark:text-white">WhatsApp:</strong> +55 (81) 99999-9999
+              <strong className="text-[color:var(--header-link)] dark:text-white">Endereço:</strong> {siteConfig.address.street}, {siteConfig.address.city}
             </li>
           </ul>
         </div>
@@ -109,7 +106,7 @@ export function Footer() {
 
       <div className="border-t border-[color:var(--header-border)] dark:border-white/10">
         <Container className="flex flex-col items-center justify-between gap-4 py-6 text-xs text-[color:var(--footer-subtle)] sm:flex-row dark:text-neutral-400">
-          <p>© 2025 {siteConfig.name}. Todos os direitos reservados.</p>
+          <p>© 2026 {siteConfig.name}. Todos os direitos reservados.</p>
           <p>Desenvolvimento responsável. Relacionamentos duradouros.</p>
         </Container>
       </div>
