@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/SectionHeading";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { aboutContent } from "@/content/sobre";
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -27,6 +28,13 @@ export const metadata: Metadata = {
 export default function SobrePage() {
   return (
     <Container className="space-y-16 lg:space-y-24 pt-24 sm:pt-28 pb-20">
+      <Breadcrumbs 
+        className="mb-8"
+        items={[
+          { label: 'Sobre' }
+        ]}
+      />
+      
       <div className="space-y-6">
         <p className="inline-flex rounded-full border border-[color:var(--chip-border)] bg-[color:var(--chip-bg)] px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#965000] dark:border-white/20 dark:bg-white/10 dark:text-[#FCBF49]">
           {aboutContent.eyebrow || "Nossa história"}
@@ -76,6 +84,7 @@ export default function SobrePage() {
             width={720}
             height={540}
             className="h-full w-full object-cover"
+            loading="lazy"
           />
         </div>
 

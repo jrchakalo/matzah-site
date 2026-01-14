@@ -54,7 +54,9 @@ export async function getAllPostsFromDB(): Promise<BlogPost[]> {
     .order('date', { ascending: false });
 
   if (error) {
-    console.error('Erro ao buscar posts:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Erro ao buscar posts:', error);
+    }
     return [];
   }
 
@@ -69,7 +71,9 @@ export async function getPostBySlugFromDB(slug: string): Promise<BlogPost | null
     .single();
 
   if (error) {
-    console.error('Erro ao buscar post:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Erro ao buscar post:', error);
+    }
     return null;
   }
 

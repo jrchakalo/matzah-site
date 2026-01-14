@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { NewsletterForm } from "@/components/NewsletterForm";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { getAllPostsFromDB } from "@/lib/supabase";
 import { siteConfig } from "@/lib/siteConfig";
 import { Clock, Calendar, User, ArrowRight } from "lucide-react";
@@ -13,10 +15,17 @@ export const metadata: Metadata = {
   title: "Blog Matzah | Conteúdo Imobiliário, Construção e Investimento",
   description:
     "Artigos sobre avaliação, financiamento, arquitetura e desenvolvimento de empreendimentos em Pernambuco.",
+  alternates: {
+    canonical: `${siteConfig.url}/blog`,
+  },
   openGraph: {
     title: "Blog Matzah | Conteúdo Imobiliário, Construção e Investimento",
     description:
       "Artigos sobre avaliação, financiamento, arquitetura e desenvolvimento de empreendimentos em Pernambuco.",
+    url: `${siteConfig.url}/blog`,
+    siteName: siteConfig.name,
+    locale: 'pt_BR',
+    type: 'website',
     images: [
       {
         url: `${siteConfig.url}/images/blog-conteudo.jpg`,
@@ -34,6 +43,13 @@ export default async function BlogPage() {
   return (
     <>
       <Container className="pt-24 sm:pt-28 pb-20">
+        <Breadcrumbs 
+          className="mb-8"
+          items={[
+            { label: 'Blog' }
+          ]}
+        />
+        
         <div className="text-center mb-12 max-w-4xl mx-auto">
           <SectionHeading
             eyebrow="Blog"
@@ -54,10 +70,13 @@ export default async function BlogPage() {
               {/* Imagem */}
               <div className="aspect-video w-full overflow-hidden bg-[color:var(--surface-soft)]">
                 {post.cover_image ? (
-                  <img
+                  <Image
                     src={post.cover_image}
                     alt={post.title}
+                    width={640}
+                    height={360}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
                   />
                 ) : (
                   <div className="flex h-full items-center justify-center bg-gradient-to-br from-[#DD0000]/10 to-[#F77F00]/10">

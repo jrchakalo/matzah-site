@@ -35,7 +35,10 @@ Website institucional moderno do Grupo Matzah construído com **Next.js 15**, **
 
 ### 🚀 Performance & SEO
 - **Otimização de imagens** com `next/image` (lazy loading, WebP)
-- **SEO aprimorado**: metatags dinâmicas, Open Graph, Schema.org
+- **SEO aprimorado**: metatags dinâmicas, Open Graph, Schema.org, sitemap dinâmico
+- **Breadcrumbs estruturados** com Schema.org BreadcrumbList para SEO
+- **Google Analytics & Tag Manager** integrados (opcional)
+- **Lazy loading inteligente**: imagens above-the-fold com priority, resto com lazy
 - **Palavras-chave** otimizadas para pt-BR (mercado imobiliário PE)
 - **Componentes reutilizáveis** para manutenibilidade
 
@@ -107,11 +110,23 @@ npm install
 
 ### 2. Configurar Supabase
 
-Crie um arquivo `.env.local` na raiz do projeto:
+Crie um arquivo `.env.local` na raiz do projeto (use `.env.example` como template):
 
 ```bash
+# Supabase (OBRIGATÓRIO)
 NEXT_PUBLIC_SUPABASE_URL=https://seu-projeto.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=sua-chave-anonima
+
+# Email (OBRIGATÓRIO para formulário de contato)
+GMAIL_USER=seu-email@gmail.com
+GMAIL_APP_PASSWORD=sua-senha-de-app
+CONTACT_EMAIL_TO=contato@matzah.com.br
+
+# Google Analytics (OPCIONAL)
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+
+# Google Tag Manager (OPCIONAL)
+NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
 ```
 
 **Configuração completa do banco de dados:**
@@ -136,6 +151,51 @@ Acesse [http://localhost:3000](http://localhost:3000) 🎉
 4. Faça login em `/admin` com as credenciais criadas
 
 **Documentação completa:** veja `AUTENTICACAO-ADMIN.md` para detalhes de segurança.
+
+---
+
+## 📊 Analytics & Tracking (Opcional)
+
+O site suporta integração com **Google Analytics 4** e **Google Tag Manager**:
+
+### Google Analytics 4 (GA4)
+1. Crie uma propriedade GA4 em [analytics.google.com](https://analytics.google.com)
+2. Copie o **Measurement ID** (formato: `G-XXXXXXXXXX`)
+3. Adicione ao `.env.local`:
+   ```bash
+   NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+   ```
+4. O tracking será habilitado automaticamente em todas as páginas
+
+### Google Tag Manager (GTM)
+1. Crie um container em [tagmanager.google.com](https://tagmanager.google.com)
+2. Copie o **Container ID** (formato: `GTM-XXXXXXX`)
+3. Adicione ao `.env.local`:
+   ```bash
+   NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
+   ```
+4. Configure tags, triggers e variáveis no dashboard do GTM
+
+**Nota:** Ambos são opcionais. Se não configurados, os componentes não renderizam scripts.
+
+---
+
+## 🧭 Breadcrumbs & SEO Estruturado
+
+O site implementa breadcrumbs com marcação Schema.org para melhor SEO:
+
+- **Home** → Sem breadcrumbs (primeira página)
+- **Blog** → `Home > Blog`
+- **Post** → `Home > Blog > [Título do Post]`
+- **Sobre** → `Home > Sobre`
+- **Contato** → `Home > Contato`
+- **Empresas** → `Home > Grupo Matzah > [Nome da Empresa]`
+
+Os breadcrumbs incluem:
+- ✅ Marcação **Schema.org BreadcrumbList** (JSON-LD)
+- ✅ Ícones visuais (Home icon, ChevronRight separators)
+- ✅ Links clicáveis (exceto página atual)
+- ✅ Destaque da página atual em branco
 
 ---
 

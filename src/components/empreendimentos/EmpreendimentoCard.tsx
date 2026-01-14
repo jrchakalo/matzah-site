@@ -26,6 +26,7 @@ export function EmpreendimentoCard({ empreendimento, index }: EmpreendimentoCard
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          loading="lazy"
         />
         <span className="absolute left-4 top-4 inline-flex rounded-full border border-[color:var(--border-color)] bg-[color:var(--surface)] px-3 py-1 text-xs font-semibold text-[#DD0000] shadow-sm shadow-[0_12px_25px_-15px_var(--card-shadow)] dark:border-white/15 dark:bg-[#2a2a2a]">
           {empreendimento.status}

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/SectionHeading";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ProcessTimeline } from "@/components/services/ProcessTimeline";
 import { grupoMatzahContent } from "@/content/grupo-matzah";
 import { siteConfig } from "@/lib/siteConfig";
@@ -29,6 +30,13 @@ export const metadata: Metadata = {
 export default function GrupoMatzahPage() {
   return (
     <Container className="space-y-16 lg:space-y-24 pt-24 sm:pt-28 pb-20">
+      <Breadcrumbs 
+        className="mb-8"
+        items={[
+          { label: 'Grupo Matzah' }
+        ]}
+      />
+      
       <section className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div className="space-y-6">
           <SectionHeading

@@ -17,11 +17,18 @@ export const metadata: Metadata = {
   description:
     "Matzah Empreendimentos em Bezerros-PE: imóveis, construção civil, avaliações, arquitetura, financiamento e desenvolvimento de projetos com fé, transparência e excelência.",
   keywords: siteConfig.keywords.primary,
+  alternates: {
+    canonical: siteConfig.url,
+  },
   openGraph: {
     title:
       "Matzah Empreendimentos & Construções | Imobiliária e Construção em Bezerros",
     description:
       "Matzah Empreendimentos em Bezerros-PE: imóveis, construção civil, avaliações, arquitetura, financiamento e desenvolvimento de projetos com fé, transparência e excelência.",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    locale: 'pt_BR',
+    type: 'website',
     images: [
       {
         url: `${siteConfig.url}/images/hero-construcao.jpg`,

@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/SectionHeading";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { grupoMatzahContent } from "@/content/grupo-matzah";
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -28,6 +29,14 @@ export const metadata: Metadata = {
 export default function MatzahWayPage() {
   return (
     <Container className="space-y-6 lg:space-y-8 pt-24 sm:pt-28 pb-20">
+      <Breadcrumbs 
+        className="mb-6"
+        items={[
+          { label: 'Grupo Matzah', href: '/grupo-matzah' },
+          { label: 'Matzah Way' }
+        ]}
+      />
+      
       <div className="space-y-6">
         <Link
           href="/grupo-matzah"
@@ -58,6 +67,7 @@ export default function MatzahWayPage() {
           width={1200}
           height={600}
           className="h-full w-full object-cover"
+          loading="lazy"
         />
       </div>
 

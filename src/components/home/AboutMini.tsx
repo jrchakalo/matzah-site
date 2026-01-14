@@ -33,6 +33,7 @@ export function AboutMini() {
           width={640}
           height={480}
           className="h-full w-full object-cover"
+          loading="lazy"
         />
       </motion.div>
     </div>

@@ -60,7 +60,9 @@ export default function EditarPost() {
       alert('Post atualizado com sucesso!');
       router.push('/admin/dashboard');
     } catch (error) {
-      console.error('Erro ao atualizar post:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Erro ao atualizar post:', error);
+      }
       alert('Erro ao atualizar post');
     }
     setLoading(false);
@@ -75,7 +77,9 @@ export default function EditarPost() {
       const url = await uploadImage(file);
       setPost({ ...post, cover_image: url });
     } catch (error) {
-      console.error('Erro ao fazer upload:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Erro ao fazer upload:', error);
+      }
       alert('Erro ao fazer upload da imagem');
     }
     setUploading(false);

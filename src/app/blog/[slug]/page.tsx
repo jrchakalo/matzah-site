@@ -8,6 +8,7 @@ import { Container } from "@/components/layout/Container";
 import { getAllPostsFromDB, getPostBySlugFromDB } from "@/lib/supabase";
 import { siteConfig } from "@/lib/siteConfig";
 import { ArrowLeft, Calendar, Clock, User, ArrowRight } from "lucide-react";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const revalidate = 0; // Sempre busca dados mais recentes
 
@@ -32,11 +33,19 @@ export async function generateMetadata({
   return {
     title: `${post.title} | Blog Matzah`,
     description: post.excerpt,
+    alternates: {
+      canonical: `${siteConfig.url}/blog/${post.slug}`,
+    },
+    keywords: `${post.category}, ${post.title}, Matzah, ${siteConfig.keywords.primary}`,
     openGraph: {
       title: post.title,
       description: post.excerpt,
+      url: `${siteConfig.url}/blog/${post.slug}`,
+      siteName: siteConfig.name,
+      locale: 'pt_BR',
       type: "article",
       publishedTime: post.date,
+      modifiedTime: post.updated_at || post.date,
       authors: [post.author],
       images: [
         {
@@ -46,6 +55,12 @@ export async function generateMetadata({
           alt: post.title,
         },
       ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [post.cover_image || `${siteConfig.url}/images/blog.jpg`],
     },
   };
 }
@@ -63,9 +78,49 @@ export default async function BlogPostPage({
 
   return (
     <>
+      {/* JSON-LD Schema para SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            headline: post.title,
+            description: post.excerpt,
+            image: post.cover_image || `${siteConfig.url}/images/blog.jpg`,
+            datePublished: post.date,
+            dateModified: post.updated_at || post.date,
+            author: {
+              '@type': 'Person',
+              name: post.author,
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: siteConfig.name,
+              logo: {
+                '@type': 'ImageObject',
+                url: `${siteConfig.url}/images/logo-dark.png`,
+              },
+            },
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': `${siteConfig.url}/blog/${post.slug}`,
+            },
+          }),
+        }}
+      />
       <Container className="py-12 pt-24 sm:pt-28 pb-20">
         <div className="mx-auto max-w-4xl">
-          {/* Breadcrumb */}
+          {/* Breadcrumbs */}
+          <Breadcrumbs 
+            className="mb-6"
+            items={[
+              { label: 'Blog', href: '/blog' },
+              { label: post.title }
+            ]}
+          />
+          
+          {/* Back Button */}
           <Link
             href="/blog"
             className="group mb-8 inline-flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-accent-blue"

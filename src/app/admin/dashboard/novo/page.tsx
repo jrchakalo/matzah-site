@@ -44,8 +44,10 @@ export default function NovoPost() {
       alert('Post criado com sucesso!');
       router.push('/admin/dashboard');
     } catch (error) {
-      console.error('Erro ao criar post:', error);
-      alert('Erro ao criar post. Verifique se configurou o Supabase.');
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Erro ao criar post:', error);
+      }
+      alert('Erro ao criar post. Verifique os campos e tente novamente.');
     }
 
     setLoading(false);
@@ -60,7 +62,9 @@ export default function NovoPost() {
       const url = await uploadImage(file);
       setForm({ ...form, cover_image: url });
     } catch (error) {
-      console.error('Erro ao fazer upload:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Erro ao fazer upload:', error);
+      }
       alert('Erro ao fazer upload da imagem');
     }
     setUploading(false);

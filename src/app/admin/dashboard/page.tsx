@@ -41,7 +41,9 @@ export default function AdminDashboard() {
       await deletePost(id);
       setPosts(posts.filter(p => p.id !== id));
     } catch (error) {
-      console.error('Erro ao deletar:', error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('Erro ao deletar:', error);
+      }
       alert('Erro ao deletar post');
     }
     setDeleting(null);
