@@ -10,8 +10,8 @@ export const contactContent = {
     "Estamos à disposição para orientar, esclarecer e caminhar com você em cada etapa.",
   channels: [
     {
-      label: "WhatsApp",
-      value: "+55 (81) 99935-5932",
+      label: "Telefone / WhatsApp",
+      value: siteConfig.phone,
       description: "Resposta rápida em horário comercial.",
       href: buildWhatsAppLink(siteConfig.whatsappNumber, defaultWhatsAppMessage),
     },
@@ -22,13 +22,8 @@ export const contactContent = {
       href: `mailto:${siteConfig.email}`,
     },
     {
-      label: "Telefone",
-      value: siteConfig.phone,
-      description: "Atendimento de segunda a sexta, 8h às 18h.",
-    },
-    {
       label: "Endereço",
-      value: `${siteConfig.address.street}, ${siteConfig.address.neighborhood}, ${siteConfig.address.city} - ${siteConfig.address.state}`,
+      value: `${siteConfig.address.street}, ${siteConfig.address.city}`,
       description: "Atendimento presencial com agendamento prévio.",
     },
     {

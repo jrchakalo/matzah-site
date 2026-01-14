@@ -59,12 +59,6 @@ export function BlogPreview() {
           >
             Explorar o blog
           </Link>
-          <Link
-            href="#newsletter"
-            className="inline-flex items-center justify-center rounded-full border border-[color:var(--border-color)] bg-[color:var(--surface)] px-5 py-3 text-sm font-semibold text-[color:var(--header-link)] transition hover:border-[#F77F00]/70 hover:text-[#DD0000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:border-white/15 dark:bg-transparent dark:text-white dark:hover:border-[#F77F00] dark:hover:text-[#F77F00] dark:focus-visible:ring-offset-[#121212]"
-          >
-            Assinar novidades
-          </Link>
         </div>
       </motion.div>
     </section>

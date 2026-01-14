@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/SectionHeading";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { ContactChannels } from "@/components/contact/ContactChannels";
 import { contactContent } from "@/content/contato";
@@ -28,7 +29,14 @@ export const metadata: Metadata = {
 
 export default function ContatoPage() {
   return (
-    <Container className="space-y-16 lg:space-y-24">
+    <Container className="space-y-8 lg:space-y-10 pt-24 sm:pt-28 pb-20">
+      <Breadcrumbs 
+        className="mb-8"
+        items={[
+          { label: 'Contato' }
+        ]}
+      />
+      
       <SectionHeading
         eyebrow="Atendimento"
         title={contactContent.title}

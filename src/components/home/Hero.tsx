@@ -44,17 +44,24 @@ export function Hero() {
             {heroContent.lead}
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-wrap gap-3">
             {heroContent.primaryCtas.map((cta, index) => {
-              const href = cta.label.includes("WhatsApp") ? whatsappHref : cta.href;
+              const isExternal = cta.href.startsWith("http");
+              const isWhatsApp = cta.label.includes("WhatsApp");
               const primaryStyles =
                 index === 0
-                  ? "border border-[#F77F00]/60 bg-[#F77F00]/20 text-white shadow-[0_0_30px_rgba(247,127,0,0.18)] hover:bg-[#F77F00]/30"
+                  ? "border border-[#F77F00]/60 bg-[#F77F00]/20 text-[#1a1714] shadow-[0_0_30px_rgba(247,127,0,0.18)] hover:bg-[#F77F00]/30 dark:text-white"
+                  : index === 1
+                  ? "border border-[#DD0000]/60 bg-[#DD0000]/20 text-[#1a1714] shadow-[0_0_30px_rgba(221,0,0,0.18)] hover:bg-[#DD0000]/30 dark:text-white"
+                  : index === 2
+                  ? "border border-[#FCBF49]/60 bg-[#FCBF49]/20 text-[#1a1714] shadow-[0_0_30px_rgba(252,191,73,0.18)] hover:bg-[#FCBF49]/30 dark:text-white"
                   : "border border-[color:var(--border-color)] bg-[color:var(--surface-soft)] text-[color:var(--header-link)] hover:border-[#F77F00]/60 hover:bg-[#F77F00]/15 hover:text-[#F77F00] dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:bg-white/15 dark:hover:text-[#F77F00]";
               return (
                 <Link
                   key={cta.label}
-                  href={href}
+                  href={cta.href}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noopener noreferrer" : undefined}
                   className={cn(
                     "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-neutral-900",
                     primaryStyles
@@ -65,17 +72,19 @@ export function Hero() {
               );
             })}
           </div>
-          <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-[color:var(--text-secondary)] dark:text-neutral-100/90">
-            {heroContent.secondaryLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="inline-flex items-center gap-2 rounded-full border border-[#FCBF49]/45 bg-[#FCBF49]/25 px-4 py-2 text-[color:var(--header-link)] transition hover:border-[#FCBF49]/65 hover:bg-[#FCBF49]/35 dark:border-[#FCBF49]/30 dark:bg-[#FCBF49]/12 dark:text-white"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+          {heroContent.secondaryLinks.length > 0 && (
+            <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-[color:var(--text-secondary)] dark:text-neutral-100/90">
+              {heroContent.secondaryLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="inline-flex items-center gap-2 rounded-full border border-[#FCBF49]/45 bg-[#FCBF49]/25 px-4 py-2 text-[color:var(--header-link)] transition hover:border-[#FCBF49]/65 hover:bg-[#FCBF49]/35 dark:border-[#FCBF49]/30 dark:bg-[#FCBF49]/12 dark:text-white"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          )}
         </motion.div>
 
         <motion.div
@@ -110,12 +119,14 @@ export function Hero() {
               Projetos imobiliários, arquitetônicos e construtivos guiados por fé, planejamento e excelência técnica.
             </p>
             <div className="space-y-3 text-sm text-[color:var(--text-tertiary)] dark:text-neutral-100/75">
-              <p>• Mais de 30 empreendimentos assessorados na região agreste.</p>
+              {heroContent.quickServices.map((item) => (
+                <p key={item}>• {item}</p>
+              ))}
               <p>• Time multidisciplinar com arquitetura, engenharia e mercado.</p>
               <p>• Transparência total do diagnóstico à pós-entrega.</p>
             </div>
             <Link
-              href="/servicos"
+              href="/grupo-matzah"
               className="inline-flex items-center justify-center rounded-full border border-[color:var(--border-color)] bg-[color:var(--surface)] px-5 py-3 text-sm font-semibold text-[color:var(--header-link)] transition hover:border-[#F77F00]/60 hover:bg-[#F77F00]/12 hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:border-white/25 dark:bg-white/10 dark:text-white dark:hover:border-brand-accent dark:hover:bg-white/20 dark:hover:text-[#F77F00] dark:focus-visible:ring-offset-neutral-900"
             >
               Conheça nossas soluções

@@ -3,15 +3,16 @@ export const heroContent = {
   subtitle:
     "Matzah Empreendimentos & Construções — Fé, transparência e excelência no mercado imobiliário de Bezerros e região.",
   lead:
-    "Somos uma empresa pernambucana que une propósito, inovação e compromisso cristão para desenvolver, representar e construir empreendimentos que valorizam pessoas, espaços e cidades.",
+    "Somos uma empresa pernambucana que une propósito, inovação e compromisso para desenvolver, representar e construir empreendimentos que valorizam pessoas, espaços e cidades.",
   primaryCtas: [
-    { label: "Ver Empreendimentos", href: "/empreendimentos" },
-    { label: "Falar no WhatsApp", href: "https://wa.me/5581999355932" },
+    { label: "Matzah Way", href: "/empresas/way" },
+    { label: "Matzah Empreendimentos & Construções", href: "/empresas/e-c" },
+    { label: "Matzah Soluções Imobiliárias", href: "https://matzahsolucoesimobiliarias.com.br" },
+    { label: "Falar no WhatsApp", href: "https://wa.me/5581985345567" },
   ],
-  secondaryLinks: [
-    { label: "Solicitar Avaliação de Imóvel", href: "/contato?assunto=avaliacao" },
-    { label: "Quero Financiar", href: "/contato?assunto=financiamento" },
-    { label: "Representar Meu Terreno", href: "/contato?assunto=parceria" },
+  secondaryLinks: [],
+  quickServices: [
+    "Mais de 30 empreendimentos assessorados em Pernambuco.",
   ],
 };
 
@@ -43,16 +44,7 @@ export const valueHighlights = [
   },
 ];
 
-export const quickServices = [
-  "Imobiliária",
-  "Construção",
-  "Arquitetura",
-  "Avaliação",
-  "Financiamento",
-  "Representação Comercial",
-];
-
-export const trustMicrocopy = "Credibilidade construída com base em princípios e resultados consistentes.";
+export const trustMicrocopy = "";
 
 export const aboutSnippet =
   "Mais que uma imobiliária ou construtora, somos parceiros estratégicos de quem quer desenvolver, investir, construir ou avaliar. Do sonho da casa própria ao empreendimento estruturado: estamos ao lado.";

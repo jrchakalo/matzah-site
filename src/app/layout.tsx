@@ -5,6 +5,8 @@ import { siteConfig } from "@/lib/siteConfig";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { GoogleTagManager } from "@/components/GoogleTagManager";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -105,8 +107,10 @@ export default function RootLayout({
         className={`${inter.variable} ${poppins.variable} flex min-h-screen flex-col antialiased transition-colors duration-300`}
         style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}
       >
+        <GoogleTagManager />
+        <GoogleAnalytics />
         <Header />
-        <main className="flex-1 pb-20 pt-24 sm:pt-28">{children}</main>
+        <main className="flex-1">{children}</main>
         <Footer />
         <FloatingWhatsApp />
         <script
