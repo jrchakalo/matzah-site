@@ -1,3 +1,7 @@
+export const quickServices = [
+  "Mais de 30 empreendimentos assessorados em Pernambuco.",
+];
+
 export const heroContent = {
   title: "Construindo confiança. Entregando valor. Transformando vidas.",
   subtitle:
@@ -10,10 +14,8 @@ export const heroContent = {
     { label: "Matzah Soluções Imobiliárias", href: "https://matzahsolucoesimobiliarias.com.br" },
     { label: "Falar no WhatsApp", href: "https://wa.me/5581985345567" },
   ],
-  secondaryLinks: [],
-  quickServices: [
-    "Mais de 30 empreendimentos assessorados em Pernambuco.",
-  ],
+  secondaryLinks: [] as Array<{ label: string; href: string }>,
+  quickServices,
 };
 
 export const valueHighlights = [

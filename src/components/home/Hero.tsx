@@ -4,10 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { heroContent } from "@/content/home";
-import { siteConfig } from "@/lib/siteConfig";
 import { cn } from "@/lib/utils";
-
-const whatsappHref = `https://wa.me/${siteConfig.whatsappNumber.replace("+", "")}`;
 
 export function Hero() {
   return (
@@ -47,7 +44,6 @@ export function Hero() {
           <div className="mt-8 flex flex-wrap gap-3">
             {heroContent.primaryCtas.map((cta, index) => {
               const isExternal = cta.href.startsWith("http");
-              const isWhatsApp = cta.label.includes("WhatsApp");
               const primaryStyles =
                 index === 0
                   ? "border border-[#F77F00]/60 bg-[#F77F00]/20 text-[#1a1714] shadow-[0_0_30px_rgba(247,127,0,0.18)] hover:bg-[#F77F00]/30 dark:text-white"

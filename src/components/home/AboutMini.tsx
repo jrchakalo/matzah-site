@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { aboutSnippet, trustMicrocopy } from "@/content/home";
+import { aboutSnippet } from "@/content/home";
 
 export function AboutMini() {
   return (

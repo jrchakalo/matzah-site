@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
-import { SectionHeading } from "@/components/SectionHeading";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { aboutContent } from "@/content/sobre";
 import { siteConfig } from "@/lib/siteConfig";

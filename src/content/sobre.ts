@@ -1,4 +1,5 @@
 export const aboutContent = {
+  eyebrow: "Nossa história",
   title: "Quem Somos",
   introduction:
     "A Matzah Empreendimentos & Construções nasceu em Bezerros-PE com o propósito de gerar valor sustentável para clientes, investidores e comunidades. Construímos mais que imóveis: estruturamos confiança, oportunidades e legado. Fundada por profissionais movidos pela visão de alinhar princípios cristãos à inteligência de mercado, a Matzah surgiu para atender uma demanda crescente por empreendimentos mais bem planejados, processos claros e uma relação ética entre todos os envolvidos. Ao longo do tempo, ampliamos nossa atuação: representação comercial de empreendimentos, arquitetura, avaliações técnicas, suporte a financiamentos e gerenciamento de obras. Hoje seguimos crescendo com responsabilidade e coerência.",

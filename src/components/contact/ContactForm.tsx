@@ -95,7 +95,7 @@ export function ContactForm() {
 				return;
 			}
 
-			const successPayload = await response.json().catch(() => ({}));
+			await response.json().catch(() => ({}));
 			setSuccessMessage(
 				"Sua mensagem foi enviada com sucesso! Em breve, um de nossos representantes entrará em contato com você."
 			);
