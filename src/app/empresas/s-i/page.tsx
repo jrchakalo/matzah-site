@@ -40,7 +40,7 @@ export default function MatzahSIPage() {
       <div className="space-y-6">
         <Link
           href="/grupo-matzah"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--text-secondary)] transition hover:text-[#FCBF49] dark:text-neutral-300 dark:hover:text-[#FCBF49]"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--text-secondary)] transition hover:text-[color:var(--highlight)] dark:text-neutral-300"
         >
           <span aria-hidden>←</span>
           Voltar ao Grupo Matzah
@@ -120,7 +120,7 @@ export default function MatzahSIPage() {
         </div>
       </div>
 
-      <div className="rounded-3xl border border-[color:var(--border-color)] bg-gradient-to-br from-[#FCBF49]/10 to-transparent p-10 text-center shadow-[0_28px_60px_-35px_var(--card-shadow)] transition-colors dark:border-white/10">
+      <div className="rounded-3xl border border-[color:var(--border-color)] bg-gradient-to-br from-[color:var(--highlight)]/10 to-transparent p-10 text-center shadow-[0_28px_60px_-35px_var(--card-shadow)] transition-colors dark:border-white/10">
         <h2 className="font-heading text-3xl font-semibold text-[color:var(--foreground)] dark:text-white">
           Visite nosso site completo
         </h2>
@@ -132,14 +132,14 @@ export default function MatzahSIPage() {
             href="https://matzahsolucoesimobiliarias.com.br"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#DD0000] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#c20000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-[#121212]"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--action-primary)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[color:var(--action-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--action-secondary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-[#121212]"
           >
             Acessar site da Imobiliária
             <span aria-hidden>↗</span>
           </Link>
           <Link
             href="/contato"
-            className="inline-flex items-center justify-center rounded-full border border-[color:var(--border-color)] bg-[color:var(--surface)] px-6 py-3 text-sm font-semibold text-[color:var(--header-link)] transition hover:border-[#FCBF49] hover:bg-[#FCBF49]/10 hover:text-[#FCBF49] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:border-white/20 dark:bg-white/5 dark:text-white dark:hover:border-[#FCBF49] dark:hover:bg-[#FCBF49]/10"
+            className="inline-flex items-center justify-center rounded-full border border-[color:var(--border-color)] bg-[color:var(--surface)] px-6 py-3 text-sm font-semibold text-[color:var(--header-link)] transition hover:border-[color:var(--highlight)] hover:bg-[color:var(--highlight)]/10 hover:text-[color:var(--highlight)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--action-secondary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:border-white/20 dark:bg-white/5 dark:text-white"
           >
             Falar com a equipe
           </Link>

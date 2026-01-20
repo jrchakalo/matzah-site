@@ -9,7 +9,6 @@ export const heroContent = {
   lead:
     "Somos uma empresa pernambucana que une propósito, inovação e compromisso para desenvolver, representar e construir empreendimentos que valorizam pessoas, espaços e cidades.",
   primaryCtas: [
-    { label: "Matzah Way", href: "/empresas/way" },
     { label: "Matzah Empreendimentos & Construções", href: "/empresas/e-c" },
     { label: "Matzah Soluções Imobiliárias", href: "https://matzahsolucoesimobiliarias.com.br" },
     { label: "Falar no WhatsApp", href: "https://wa.me/5581985345567" },

@@ -65,7 +65,7 @@ export default async function BlogPage() {
             <Link
               key={post.id}
               href={`/blog/${post.slug}`}
-              className="group flex flex-col overflow-hidden rounded-xl border border-[color:var(--border-color)] bg-[color:var(--surface)] transition-all hover:border-[#F77F00]/50 hover:shadow-[0_28px_60px_-32px_var(--card-shadow)] dark:border-white/10 dark:bg-[#212121]"
+              className="group flex flex-col overflow-hidden rounded-xl border border-[color:var(--border-color)] bg-[color:var(--surface)] transition-all hover:border-[color:var(--action-secondary)]/50 hover:shadow-[0_28px_60px_-32px_var(--card-shadow)] dark:border-white/10 dark:bg-[#212121]"
             >
               {/* Imagem */}
               <div className="aspect-video w-full overflow-hidden bg-[color:var(--surface-soft)]">
@@ -79,8 +79,8 @@ export default async function BlogPage() {
                     loading="lazy"
                   />
                 ) : (
-                  <div className="flex h-full items-center justify-center bg-gradient-to-br from-[#DD0000]/10 to-[#F77F00]/10">
-                    <span className="text-4xl font-bold text-white/20">
+                  <div className="flex h-full items-center justify-center bg-gradient-to-br from-[color:var(--action-primary)]/10 to-[color:var(--action-secondary)]/10">
+                    <span className="text-4xl font-bold text-[color:var(--text-tertiary)] dark:text-white/20">
                       {post.category[0]}
                     </span>
                   </div>
@@ -90,20 +90,20 @@ export default async function BlogPage() {
               {/* Conteúdo */}
               <div className="flex flex-1 flex-col p-6">
                 <div className="mb-3 inline-flex">
-                  <span className="rounded-full bg-[#DD0000]/10 border border-[#DD0000]/20 px-3 py-1 text-xs font-medium text-[#DD0000]">
+                  <span className="rounded-full bg-[color:var(--action-primary)]/10 border border-[color:var(--action-primary)]/20 px-3 py-1 text-xs font-medium text-[color:var(--action-primary)]">
                     {post.category}
                   </span>
                 </div>
 
-                <h3 className="mb-3 text-xl font-bold text-white transition-colors group-hover:text-[#F77F00]">
+                <h3 className="mb-3 text-xl font-bold text-[color:var(--foreground)] transition-colors group-hover:text-[color:var(--action-secondary)]">
                   {post.title}
                 </h3>
 
-                <p className="mb-4 flex-1 text-sm leading-relaxed text-gray-400">
+                <p className="mb-4 flex-1 text-sm leading-relaxed text-[color:var(--text-secondary)]">
                   {post.excerpt}
                 </p>
 
-                <div className="flex flex-wrap items-center gap-4 border-t border-[color:var(--border-color)] pt-4 text-gray-400">
+                <div className="flex flex-wrap items-center gap-4 border-t border-[color:var(--border-color)] pt-4 text-[color:var(--text-tertiary)]">
                   <div className="flex items-center gap-1.5 text-xs">
                     <Clock className="h-4 w-4" />
                     <span>{post.read_time}</span>
@@ -124,7 +124,7 @@ export default async function BlogPage() {
                   </div>
                 </div>
 
-                <div className="mt-4 flex items-center gap-2 text-sm font-medium text-[#DD0000] group-hover:text-[#F77F00] transition-colors">
+                <div className="mt-4 flex items-center gap-2 text-sm font-medium text-[color:var(--action-primary)] group-hover:text-[color:var(--action-secondary)] transition-colors">
                   Ler artigo
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -135,10 +135,10 @@ export default async function BlogPage() {
 
         {/* Newsletter */}
         <div className="mx-auto max-w-2xl rounded-2xl border border-[color:var(--border-color)] bg-[color:var(--surface)] p-8 text-center shadow-[0_28px_60px_-35px_var(--card-shadow)] dark:border-white/10 dark:bg-[#212121]">
-          <h3 className="mb-3 text-2xl font-bold text-white">
+          <h3 className="mb-3 text-2xl font-bold text-[color:var(--foreground)]">
             Receba Novidades no Email
           </h3>
-          <p className="mb-6 text-gray-400">
+          <p className="mb-6 text-[color:var(--text-secondary)]">
             Artigos, análises de mercado e dicas exclusivas direto na sua caixa
             de entrada.
           </p>

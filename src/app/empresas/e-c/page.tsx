@@ -40,7 +40,7 @@ export default function MatzahECPage() {
       <div className="space-y-6">
         <Link
           href="/grupo-matzah"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--text-secondary)] transition hover:text-[#DD0000] dark:text-neutral-300 dark:hover:text-[#DD0000]"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--text-secondary)] transition hover:text-[color:var(--action-primary)] dark:text-neutral-300"
         >
           <span aria-hidden>←</span>
           Voltar ao Grupo Matzah
@@ -120,7 +120,7 @@ export default function MatzahECPage() {
         </div>
       </div>
 
-      <div className="rounded-3xl border border-[color:var(--border-color)] bg-gradient-to-br from-[#DD0000]/10 to-transparent p-10 text-center shadow-[0_28px_60px_-35px_var(--card-shadow)] transition-colors dark:border-white/10">
+      <div className="rounded-3xl border border-[color:var(--border-color)] bg-gradient-to-br from-[color:var(--action-primary)]/10 to-transparent p-10 text-center shadow-[0_28px_60px_-35px_var(--card-shadow)] transition-colors dark:border-white/10">
         <h2 className="font-heading text-3xl font-semibold text-[color:var(--foreground)] dark:text-white">
           Precisa avaliar, projetar ou construir?
         </h2>
@@ -129,7 +129,7 @@ export default function MatzahECPage() {
         </p>
         <Link
           href="/contato"
-          className="mt-6 inline-flex items-center justify-center rounded-full bg-[#DD0000] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#c20000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-[#121212]"
+          className="mt-6 inline-flex items-center justify-center rounded-full bg-[color:var(--action-primary)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[color:var(--action-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--action-secondary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-[#121212]"
         >
           Falar com a equipe
         </Link>

@@ -123,7 +123,7 @@ export default async function BlogPostPage({
           {/* Back Button */}
           <Link
             href="/blog"
-            className="group mb-8 inline-flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-accent-blue"
+            className="group mb-8 inline-flex items-center gap-2 text-sm text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--action-secondary)]"
           >
             <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
             Voltar para o blog
@@ -144,22 +144,22 @@ export default async function BlogPostPage({
           )}
 
           {/* Cabeçalho do Post */}
-          <header className="mb-12 border-b border-gray-800 pb-8">
+          <header className="mb-12 border-b border-[color:var(--border-color)] pb-8">
             <div className="mb-4 inline-flex">
-              <span className="rounded-full bg-[#DD0000]/10 border border-[#DD0000]/20 px-4 py-1.5 text-sm font-semibold text-[#DD0000]">
+              <span className="rounded-full bg-[color:var(--action-primary)]/10 border border-[color:var(--action-primary)]/20 px-4 py-1.5 text-sm font-semibold text-[color:var(--action-primary)]">
                 {post.category}
               </span>
             </div>
 
-            <h1 className="mb-6 text-4xl font-bold leading-tight text-white md:text-5xl">
+            <h1 className="mb-6 text-4xl font-bold leading-tight text-[color:var(--foreground)] md:text-5xl">
               {post.title}
             </h1>
 
-            <p className="mb-6 text-xl leading-relaxed text-gray-400">
+            <p className="mb-6 text-xl leading-relaxed text-[color:var(--text-secondary)]">
               {post.excerpt}
             </p>
 
-            <div className="flex flex-wrap items-center gap-6 text-gray-400">
+            <div className="flex flex-wrap items-center gap-6 text-[color:var(--text-tertiary)]">
               <div className="flex items-center gap-2 text-sm">
                 <Clock className="h-4 w-4" />
                 <span>{post.read_time}</span>
@@ -186,16 +186,16 @@ export default async function BlogPostPage({
             <ReactMarkdown 
               remarkPlugins={[remarkGfm]}
               components={{
-                h2: (props) => <h2 className="text-3xl font-bold text-white mt-12 mb-6 first:mt-0" {...props} />,
-                h3: (props) => <h3 className="text-2xl font-semibold text-white mt-8 mb-4" {...props} />,
-                p: (props) => <p className="text-gray-300 leading-relaxed mb-6 text-lg" {...props} />,
-                strong: (props) => <strong className="text-white font-semibold" {...props} />,
-                ul: (props) => <ul className="list-disc ml-6 mb-6 space-y-2 text-gray-300 text-lg" {...props} />,
-                ol: (props) => <ol className="list-decimal ml-6 mb-6 space-y-2 text-gray-300 text-lg" {...props} />,
+                h2: (props) => <h2 className="text-3xl font-bold text-[color:var(--foreground)] mt-12 mb-6 first:mt-0" {...props} />,
+                h3: (props) => <h3 className="text-2xl font-semibold text-[color:var(--foreground)] mt-8 mb-4" {...props} />,
+                p: (props) => <p className="text-[color:var(--text-secondary)] leading-relaxed mb-6 text-lg" {...props} />,
+                strong: (props) => <strong className="text-[color:var(--foreground)] font-semibold" {...props} />,
+                ul: (props) => <ul className="list-disc ml-6 mb-6 space-y-2 text-[color:var(--text-secondary)] text-lg" {...props} />,
+                ol: (props) => <ol className="list-decimal ml-6 mb-6 space-y-2 text-[color:var(--text-secondary)] text-lg" {...props} />,
                 li: (props) => <li className="leading-relaxed" {...props} />,
-                a: (props) => <a className="text-[#DD0000] hover:text-[#F77F00] hover:underline font-semibold transition-colors" {...props} />,
-                hr: (props) => <hr className="border-gray-800 my-8" {...props} />,
-                blockquote: (props) => <blockquote className="border-l-4 border-accent-blue pl-4 italic text-gray-400 my-6" {...props} />,
+                a: (props) => <a className="text-[color:var(--action-primary)] hover:text-[color:var(--action-secondary)] hover:underline font-semibold transition-colors" {...props} />,
+                hr: (props) => <hr className="border-[color:var(--border-color)] my-8" {...props} />,
+                blockquote: (props) => <blockquote className="border-l-4 border-[color:var(--action-secondary)] pl-4 italic text-[color:var(--text-secondary)] my-6" {...props} />,
               }}
             >
               {post.content}
@@ -203,17 +203,17 @@ export default async function BlogPostPage({
           </article>
 
           {/* CTA */}
-          <div className="rounded-2xl border border-gray-800 bg-gradient-to-br from-accent-blue/5 to-accent-green/5 p-8 text-center">
-            <h3 className="mb-3 text-2xl font-bold text-white">
+          <div className="rounded-2xl border border-[color:var(--border-color)] bg-gradient-to-br from-[color:var(--action-primary)]/8 via-[color:var(--action-secondary)]/6 to-[color:var(--highlight)]/10 p-8 text-center">
+            <h3 className="mb-3 text-2xl font-bold text-[color:var(--foreground)]">
               Precisa de Consultoria Especializada?
             </h3>
-            <p className="mb-6 text-gray-400">
+            <p className="mb-6 text-[color:var(--text-secondary)]">
               Nossa equipe está pronta para ajudar você a realizar seus projetos
               imobiliários com segurança e eficiência.
             </p>
             <Link
               href="/contato"
-              className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#DD0000] via-[#F77F00] to-[#FCBF49] hover:from-[#c20000] hover:via-[#e57400] hover:to-[#e5ad3d] px-8 py-3 font-semibold text-white transition-all shadow-lg hover:shadow-xl"
+              className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[color:var(--action-primary)] via-[color:var(--action-secondary)] to-[color:var(--highlight)] hover:from-[color:var(--action-primary-hover)] hover:via-[color:var(--action-secondary)] hover:to-[color:var(--highlight)] px-8 py-3 font-semibold text-white transition-all shadow-lg hover:shadow-xl"
             >
               Falar com Especialista
               <ArrowRight className="h-5 w-5" />

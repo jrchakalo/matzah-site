@@ -1,6 +1,44 @@
+@config "../../tailwind.config.ts";
 @import "tailwindcss";
+@custom-variant dark ([data-theme="dark"] &);
 
-:root {
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --background: #fafafa;
+  --foreground: #000000;
+  --surface: #ffffff;
+  --surface-soft: #f5f5f5;
+  --surface-muted: rgba(255, 255, 255, 0.96);
+  --surface-alt: #f5f5f5;
+  --border-color: #e5e5e5;
+  --text-secondary: #2b2b2b;
+  --text-tertiary: #3d3d3d;
+  --chip-bg: rgba(0, 0, 0, 0.04);
+  --chip-border: rgba(0, 0, 0, 0.08);
+  --header-bg: #f3f3f3;
+  --header-border: #dddddd;
+  --header-link: #000000;
+  --header-link-muted: #2b2b2b;
+  --header-link-hover: #d00000;
+  --footer-bg: #f2f2f2;
+  --footer-text: #000000;
+  --footer-subtle: #2b2b2b;
+  --card-shadow: rgba(208, 0, 0, 0.12);
+  --input-bg: #ffffff;
+  --input-border: #e5e5e5;
+  --input-placeholder: rgba(0, 0, 0, 0.4);
+  --badge-bg: rgba(247, 127, 0, 0.18);
+  --gradient-soft: linear-gradient(145deg, rgba(208, 0, 0, 0.12), rgba(250, 250, 250, 0.72));
+  --action-primary: #d00000;
+  --action-primary-hover: #b00000;
+  --action-secondary: #f77f00;
+  --highlight: #fcbf49;
+  --action-primary-shadow: rgba(208, 0, 0, 0.28);
+  --selection-bg: rgba(208, 0, 0, 0.14);
+}
+
+[data-theme="dark"] {
   --background: #181818;
   --foreground: #f5f4ef;
   --surface: #212121;
@@ -26,6 +64,13 @@
   --input-placeholder: rgba(255, 255, 255, 0.45);
   --badge-bg: rgba(247, 127, 0, 0.28);
   --gradient-soft: linear-gradient(145deg, rgba(221, 0, 0, 0.22), rgba(12, 12, 12, 0.6));
+  --action-primary: #dd0000;
+  --action-primary-hover: #c20000;
+  --action-secondary: #f77f00;
+  --highlight: #fcbf49;
+  --action-primary-shadow: rgba(221, 0, 0, 0.28);
+  --selection-bg: rgba(221, 0, 0, 0.14);
+  color-scheme: dark;
 }
 
 body {
@@ -54,5 +99,5 @@ a {
 }
 
 ::selection {
-  background: rgba(221, 0, 0, 0.14);
+  background: var(--selection-bg);
 }

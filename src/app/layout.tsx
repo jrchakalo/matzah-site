@@ -102,9 +102,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="dark">
+    <html lang="pt-BR" className="light" data-theme="light">
       <body
-        className={`${inter.variable} ${poppins.variable} flex min-h-screen flex-col antialiased transition-colors duration-300`}
+        className={`${inter.variable} ${poppins.variable} light flex min-h-screen flex-col antialiased transition-colors duration-300`}
         style={{ backgroundColor: "var(--background)", color: "var(--foreground)" }}
       >
         <GoogleTagManager />

@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: "class",
+  darkMode: ["class", "[data-theme=\"dark\"]"],
   content: [
     "./src/app/**/*.{ts,tsx}",
     "./src/components/**/*.{ts,tsx}",
@@ -11,7 +11,7 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          primary: "#DD0000",
+          primary: "#D00000",
           secondary: "#F77F00",
           accent: "#FCBF49",
           dark: "#000000",

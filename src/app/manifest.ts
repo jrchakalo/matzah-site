@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'Imobiliária e Construção em Bezerros-PE com fé, transparência e excelência',
     start_url: '/',
     display: 'standalone',
-    background_color: '#000000',
-    theme_color: '#DD0000',
+    background_color: '#FAFAFA',
+    theme_color: '#D00000',
     icons: [
       {
         src: '/favicon.ico',

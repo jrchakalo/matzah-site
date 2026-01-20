@@ -9,19 +9,19 @@ import { grupoMatzahContent } from "@/content/grupo-matzah";
 import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
-  title: "Grupo Matzah | Três Empresas, Um Propósito",
+  title: "Grupo Matzah | Duas Empresas, Um Propósito",
   description:
-    "Conheça as três empresas do Grupo Matzah: Matzah Way, Matzah Empreendimentos & Construções e Matzah Soluções Imobiliárias.",
+    "Conheça as duas empresas do Grupo Matzah: Matzah Empreendimentos & Construções e Matzah Soluções Imobiliárias.",
   openGraph: {
-    title: "Grupo Matzah | Três Empresas, Um Propósito",
+    title: "Grupo Matzah | Duas Empresas, Um Propósito",
     description:
-      "Conheça as três empresas do Grupo Matzah: Matzah Way, Matzah Empreendimentos & Construções e Matzah Soluções Imobiliárias.",
+      "Conheça as duas empresas do Grupo Matzah: Matzah Empreendimentos & Construções e Matzah Soluções Imobiliárias.",
     images: [
       {
         url: `${siteConfig.url}/images/hero-construcao.jpg`,
         width: 1200,
         height: 630,
-        alt: "Grupo Matzah - Três empresas integradas",
+        alt: "Grupo Matzah - Duas empresas integradas",
       },
     ],
   },
@@ -107,7 +107,7 @@ export default function GrupoMatzahPage() {
                 href={empresa.cta.href}
                 target={empresa.external ? "_blank" : undefined}
                 rel={empresa.external ? "noopener noreferrer" : undefined}
-                className="mt-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#DD0000] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#c20000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-[#121212]"
+                className="mt-auto inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--action-primary)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[color:var(--action-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--action-secondary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-[#121212]"
               >
                 {empresa.cta.label}
                 {empresa.external && <span aria-hidden>↗</span>}
@@ -118,7 +118,7 @@ export default function GrupoMatzahPage() {
         </div>
       </section>
 
-      <section className="rounded-3xl border border-[color:var(--border-color)] bg-gradient-to-br from-[#DD0000]/10 via-[#F77F00]/10 to-[#FCBF49]/10 p-10 text-center shadow-[0_28px_60px_-35px_var(--card-shadow)] transition-colors dark:border-white/10 dark:from-[#DD0000]/5 dark:via-[#F77F00]/5 dark:to-[#FCBF49]/5">
+      <section className="rounded-3xl border border-[color:var(--border-color)] bg-gradient-to-br from-[color:var(--action-primary)]/10 via-[color:var(--action-secondary)]/10 to-[color:var(--highlight)]/10 p-10 text-center shadow-[0_28px_60px_-35px_var(--card-shadow)] transition-colors dark:border-white/10">
         <h2 className="font-heading text-3xl font-semibold text-[color:var(--foreground)] dark:text-white">
           {grupoMatzahContent.integration.title}
         </h2>
@@ -145,7 +145,7 @@ export default function GrupoMatzahPage() {
         </h2>
         <Link
           href="/contato"
-          className="mt-6 inline-flex items-center justify-center rounded-full bg-[#DD0000] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#c20000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-[#121212]"
+          className="mt-6 inline-flex items-center justify-center rounded-full bg-[color:var(--action-primary)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[color:var(--action-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--action-secondary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-[#121212]"
         >
           Entre em contato
         </Link>

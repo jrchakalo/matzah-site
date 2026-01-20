@@ -82,7 +82,7 @@ export function NewsletterForm({
       viewport={{ once: true, amount: 0.4 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={cn(
-        "relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#DD0000] via-[#F77F00] to-[#FCBF49] p-[1px]",
+        "relative overflow-hidden rounded-3xl bg-gradient-to-br from-[color:var(--action-primary)] via-[color:var(--action-secondary)] to-[color:var(--highlight)] p-[1px]",
         className
       )}
       aria-labelledby="newsletter-title"
@@ -114,11 +114,11 @@ export function NewsletterForm({
             name="email"
             required
             placeholder="nome@empresa.com"
-            className="flex-1 rounded-full border border-[color:var(--border-color)] bg-[color:var(--surface)] px-5 py-3 text-base text-[color:var(--text-secondary)] shadow-sm shadow-[0_20px_40px_-25px_var(--card-shadow)] placeholder:text-[color:var(--input-placeholder)] focus:border-[#DD0000] focus:outline-none focus:ring-2 focus:ring-[#F77F00] focus:ring-offset-2 focus:ring-offset-[color:var(--surface-muted)] dark:border-white/15 dark:bg-[#2a2a2a] dark:text-white dark:placeholder:text-neutral-400 dark:focus:ring-offset-[#1f1f1f]"
+            className="flex-1 rounded-full border border-[color:var(--border-color)] bg-[color:var(--surface)] px-5 py-3 text-base text-[color:var(--text-secondary)] shadow-sm shadow-[0_20px_40px_-25px_var(--card-shadow)] placeholder:text-[color:var(--input-placeholder)] focus:border-[color:var(--action-primary)] focus:outline-none focus:ring-2 focus:ring-[color:var(--action-secondary)] focus:ring-offset-2 focus:ring-offset-[color:var(--surface-muted)] dark:border-white/15 dark:bg-[#2a2a2a] dark:text-white dark:placeholder:text-neutral-400 dark:focus:ring-offset-[#1f1f1f]"
           />
           <button
             type="submit"
-            className="inline-flex items-center justify-center rounded-full bg-[#DD0000] px-6 py-3 text-base font-semibold text-white shadow transition hover:bg-[#c20000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface-muted)] dark:focus-visible:ring-offset-[#1f1f1f]"
+            className="inline-flex items-center justify-center rounded-full bg-[color:var(--action-primary)] px-6 py-3 text-base font-semibold text-white shadow transition hover:bg-[color:var(--action-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--action-secondary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface-muted)] dark:focus-visible:ring-offset-[#1f1f1f]"
             disabled={status === "loading" || status === "success"}
           >
             {status === "loading" ? "Enviando..." : status === "success" ? "Inscrito" : "Assinar"}

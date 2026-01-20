@@ -25,7 +25,7 @@ export function ServicesTeaser() {
           </p>
           <Link
             href={service.cta.href}
-            className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[#DD0000] transition hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-[#121212]"
+            className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--action-primary)] transition hover:text-[color:var(--action-secondary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--action-secondary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-[#121212]"
           >
             {service.cta.label}
             <span aria-hidden>→</span>

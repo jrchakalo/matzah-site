@@ -3,31 +3,28 @@
 import { useEffect, useState } from "react";
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [theme, setTheme] = useState<"dark" | "light">("light");
 
   useEffect(() => {
-    // Sempre inicia no modo escuro
     const root = document.documentElement;
-    root.classList.remove("light");
+    root.dataset.theme = "light";
+    window.localStorage.setItem("theme", "light");
+    setTheme("light");
   }, []);
 
   const toggleTheme = () => {
     const root = document.documentElement;
     const newTheme = theme === "dark" ? "light" : "dark";
-    
-    if (newTheme === "light") {
-      root.classList.add("light");
-    } else {
-      root.classList.remove("light");
-    }
-    
+
+    root.dataset.theme = newTheme;
+    window.localStorage.setItem("theme", newTheme);
     setTheme(newTheme);
   };
 
   return (
     <button
       onClick={toggleTheme}
-      className="flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--border-color)] bg-[color:var(--surface)] transition-colors hover:border-[#F77F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--background)]"
+      className="flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--border-color)] bg-[color:var(--surface)] transition-colors hover:border-[color:var(--action-secondary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--action-secondary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--background)]"
       aria-label={theme === "dark" ? "Ativar modo claro" : "Ativar modo escuro"}
       type="button"
     >
@@ -42,7 +39,7 @@ export function ThemeToggle() {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="text-[#FCBF49]"
+          className="text-[color:var(--highlight)]"
         >
           <circle cx="12" cy="12" r="4" />
           <path d="M12 2v2" />
@@ -65,7 +62,7 @@ export function ThemeToggle() {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="text-[#DD0000]"
+          className="text-[color:var(--action-primary)]"
         >
           <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
         </svg>

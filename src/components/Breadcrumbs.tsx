@@ -28,7 +28,7 @@ export function Breadcrumbs({ items, className = '' }: BreadcrumbsProps) {
           <Link
             href="/"
             itemProp="item"
-            className="text-gray-400 hover:text-white transition-colors flex items-center gap-1"
+            className="text-[color:var(--text-tertiary)] hover:text-[color:var(--foreground)] transition-colors flex items-center gap-1 dark:text-gray-400 dark:hover:text-white"
           >
             <Home className="w-4 h-4" />
             <span itemProp="name" className="sr-only">Início</span>
@@ -44,17 +44,17 @@ export function Breadcrumbs({ items, className = '' }: BreadcrumbsProps) {
             itemType="https://schema.org/ListItem"
             className="flex items-center gap-2"
           >
-            <ChevronRight className="w-4 h-4 text-gray-600" />
+            <ChevronRight className="w-4 h-4 text-[color:var(--text-tertiary)] dark:text-gray-600" />
             {item.href ? (
               <Link
                 href={item.href}
                 itemProp="item"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-[color:var(--text-tertiary)] hover:text-[color:var(--foreground)] transition-colors dark:text-gray-400 dark:hover:text-white"
               >
                 <span itemProp="name">{item.label}</span>
               </Link>
             ) : (
-              <span itemProp="name" className="text-white font-medium">
+              <span itemProp="name" className="text-[color:var(--foreground)] font-medium dark:text-white">
                 {item.label}
               </span>
             )}

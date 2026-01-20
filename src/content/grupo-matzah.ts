@@ -1,32 +1,11 @@
 export const grupoMatzahContent = {
   title: "Grupo Matzah",
   intro:
-    "Três empresas integradas que formam um ecossistema completo de soluções para o mercado imobiliário e de construção em Pernambuco.",
+    "Duas empresas integradas que formam um ecossistema completo de soluções para o mercado imobiliário e de construção em Pernambuco.",
   description:
-    "O Grupo Matzah reúne expertise em diferentes áreas do setor imobiliário e construtivo, oferecendo desde soluções criativas e estratégicas até a execução técnica de empreendimentos. Cada empresa possui foco específico, mas todas compartilham os mesmos valores de transparência, excelência e compromisso com resultados sustentáveis.",
+    "O Grupo Matzah reúne expertise em diferentes áreas do setor imobiliário e construtivo, oferecendo desde soluções estratégicas até a execução técnica de empreendimentos. Cada empresa possui foco específico, mas todas compartilham os mesmos valores de transparência, excelência e compromisso com resultados sustentáveis.",
   
   empresas: [
-    {
-      id: "way",
-      name: "Matzah Way",
-      tagline: "Estratégia e criatividade para empreendimentos que se destacam",
-      description:
-        "A Matzah Way é a agência de inteligência comercial e marketing do Grupo Matzah. Desenvolvemos estratégias completas para lançamento e posicionamento de empreendimentos imobiliários, desde naming e identidade visual até campanhas digitais e materiais de venda.",
-      services: [
-        "Agência de Marketing",
-        "Inteligência Comercial",
-      ],
-      highlights: [
-        "Naming e identidade visual para empreendimentos",
-        "Estratégia comercial e posicionamento de mercado",
-        "Materiais de venda e campanhas digitais",
-        "Análise de mercado e definição de público-alvo",
-        "Gestão de lançamentos imobiliários",
-        "Branding e storytelling de empreendimentos",
-      ],
-      cta: { label: "Conheça a Matzah Way", href: "/empresas/way" },
-      color: "#F77F00", // Laranja
-    },
     {
       id: "empreendimentos-construcoes",
       name: "Matzah Empreendimentos & Construções",
@@ -48,7 +27,7 @@ export const grupoMatzahContent = {
         "Compliance técnico e normas ABNT",
       ],
       cta: { label: "Conheça Empreendimentos & Construções", href: "/empresas/e-c" },
-      color: "#DD0000", // Vermelho
+      color: "var(--action-primary)",
     },
     {
       id: "solucoes-imobiliarias",
@@ -69,7 +48,7 @@ export const grupoMatzahContent = {
         "Suporte em todo o processo de aquisição",
       ],
       cta: { label: "Visite o Site da Imobiliária", href: "https://matzahsolucoesimobiliarias.com.br" },
-      color: "#FCBF49", // Amarelo
+      color: "var(--highlight)",
       external: true,
     },
   ],
@@ -77,7 +56,7 @@ export const grupoMatzahContent = {
   integration: {
     title: "Sinergia que gera resultados",
     description:
-      "A integração entre as três empresas permite oferecer soluções completas e eficientes, desde a concepção estratégica até a entrega final, garantindo governança, transparência e maximização de valor em cada etapa.",
+      "A integração entre as duas empresas permite oferecer soluções completas e eficientes, desde a concepção estratégica até a entrega final, garantindo governança, transparência e maximização de valor em cada etapa.",
   },
   
   closing: "Quer saber como o Grupo Matzah pode ajudar no seu projeto? Entre em contato.",

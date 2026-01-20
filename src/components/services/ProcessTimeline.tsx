@@ -37,7 +37,7 @@ function TimelineStep({ step, index, lineOffset }: TimelineStepProps) {
         style={{ left: lineOffset }}
         aria-hidden
       >
-        <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[#DD0000] via-[#F77F00] to-[#FCBF49] shadow-[0_0_12px_rgba(221,0,0,0.28)]" />
+        <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[color:var(--action-primary)] via-[color:var(--action-secondary)] to-[color:var(--highlight)] shadow-[0_0_12px_var(--action-primary-shadow)]" />
       </span>
       <div className="space-y-1">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--header-link-muted)] dark:text-neutral-300">
@@ -58,7 +58,7 @@ export function ProcessTimeline() {
     <div className="relative">
       <span
         aria-hidden
-  className="pointer-events-none absolute top-0 bottom-0 border-l border-dashed border-[#F77F00]/45 dark:border-[#F77F00]/40"
+        className="pointer-events-none absolute top-0 bottom-0 border-l border-dashed border-[color:var(--action-secondary)] opacity-45"
         style={{ left: lineOffset }}
       />
       <ol className="space-y-8">

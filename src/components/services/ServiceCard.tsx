@@ -31,7 +31,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
       <div className="mt-6 flex flex-wrap items-center gap-3">
         <Link
           href={service.cta.href}
-          className="inline-flex items-center gap-2 rounded-full bg-[#DD0000]/10 px-4 py-2 text-sm font-semibold text-[#DD0000] transition hover:bg-[#DD0000]/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-[#121212]"
+          className="inline-flex items-center gap-2 rounded-full bg-[color:var(--action-primary)]/10 px-4 py-2 text-sm font-semibold text-[color:var(--action-primary)] transition hover:bg-[color:var(--action-primary)]/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--action-secondary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-[#121212]"
         >
           {service.cta.label}
           <span aria-hidden>→</span>
@@ -41,7 +41,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
             href={service.hubUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border-color)] bg-[color:var(--surface)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--header-link)] transition hover:border-[#F77F00] hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:border-white/15 dark:bg-[#272727] dark:text-white/80 dark:hover:border-[#F77F00] dark:hover:text-[#F77F00] dark:focus-visible:ring-offset-[#121212]"
+            className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border-color)] bg-[color:var(--surface)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--header-link)] transition hover:border-[color:var(--action-secondary)] hover:text-[color:var(--action-secondary)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[color:var(--action-secondary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:border-white/15 dark:bg-[#272727] dark:text-white/80 dark:focus-visible:ring-offset-[#121212]"
           >
             Acesse o site
             <span aria-hidden>↗</span>

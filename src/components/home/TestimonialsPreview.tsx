@@ -31,7 +31,7 @@ export function TestimonialsPreview() {
       <div className="flex justify-end">
         <Link
           href="/depoimentos"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[#DD0000] transition hover:text-[#F77F00] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-[#121212]"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--action-primary)] transition hover:text-[color:var(--action-secondary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--action-secondary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-[#121212]"
         >
           Ver todos os depoimentos
           <span aria-hidden>→</span>

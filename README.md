@@ -1,6 +1,6 @@
 # 🏗️ Matzah Empreendimentos & Construções
 
-Website institucional moderno do Grupo Matzah construído com **Next.js 15**, **React 19**, **TailwindCSS** e **Supabase**, apresentando as três empresas do grupo: Matzah Way, Matzah Empreendimentos & Construções e Matzah Soluções Imobiliárias.
+Website institucional moderno do Grupo Matzah construído com **Next.js 15**, **React 19**, **TailwindCSS** e **Supabase**, apresentando as duas empresas do grupo: Matzah Empreendimentos & Construções e Matzah Soluções Imobiliárias.
 
 ![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat&logo=next.js)
 ![React](https://img.shields.io/badge/React-19-blue?style=flat&logo=react)
@@ -201,11 +201,10 @@ Os breadcrumbs incluem:
 
 ## 🏢 Empresas do Grupo Matzah
 
-O site apresenta as três verticais de negócio:
+O site apresenta as duas verticais de negócio:
 
 | Empresa | Foco | Serviços |
 |---------|------|----------|
-| **Matzah Way** | Inteligência Comercial | Agência de marketing, análise de mercado, branding |
 | **Matzah Empreendimentos** | Construção Civil | Arquitetura, engenharia, construção, avaliação técnica |
 | **Matzah Soluções Imobiliárias** | Mercado Imobiliário | Corretagem, financiamento, legalização de imóveis |
 
@@ -246,7 +245,7 @@ npm run lint         # ESLint (análise estática)
 ## 🎨 Paleta de Cores
 
 ```css
---primary-red:    #DD0000  /* Vermelho principal */
+--primary-red:    #D00000  /* Vermelho principal */
 --primary-orange: #F77F00  /* Laranja (hover) */
 --primary-yellow: #FCBF49  /* Amarelo (acento) */
 --surface:        rgba(17, 24, 39, 0.5)  /* Gray 900/50 */

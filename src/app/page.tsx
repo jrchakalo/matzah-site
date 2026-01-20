@@ -67,7 +67,7 @@ export default function HomePage() {
           />
           <ProcessSteps />
           {trustMicrocopy && (
-            <p className="text-sm font-semibold text-[#DD0000]">{trustMicrocopy}</p>
+            <p className="text-sm font-semibold text-[color:var(--action-primary)]">{trustMicrocopy}</p>
           )}
         </section>
 

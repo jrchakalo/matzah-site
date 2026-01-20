@@ -87,20 +87,20 @@ export default function EditarPost() {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="text-white text-xl">Carregando...</div>
+      <div className="min-h-screen bg-[color:var(--background)] flex items-center justify-center dark:bg-black">
+        <div className="text-[color:var(--foreground)] text-xl dark:text-white">Carregando...</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-black">
-      <div className="bg-gray-900 border-b border-gray-800">
+    <div className="min-h-screen bg-[color:var(--background)] dark:bg-black">
+      <div className="bg-[color:var(--surface)] border-b border-[color:var(--border-color)] dark:bg-gray-900 dark:border-gray-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-white">Editar Post</h1>
+          <h1 className="text-2xl font-bold text-[color:var(--foreground)] dark:text-white">Editar Post</h1>
           <Link
             href="/admin/dashboard"
-            className="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-lg transition-colors"
+            className="bg-[color:var(--surface-alt)] hover:bg-[color:var(--surface-soft)] text-[color:var(--foreground)] px-6 py-2 rounded-lg transition-colors dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white"
           >
             Voltar
           </Link>
@@ -109,29 +109,29 @@ export default function EditarPost() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="bg-gray-900 rounded-lg border border-gray-800 p-6 space-y-6">
+          <div className="bg-[color:var(--surface)] rounded-lg border border-[color:var(--border-color)] p-6 space-y-6 dark:bg-gray-900 dark:border-gray-800">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-[color:var(--text-secondary)] mb-2 dark:text-gray-300">
                 Título do Post *
               </label>
               <input
                 type="text"
                 value={post.title}
                 onChange={(e) => setPost({ ...post, title: e.target.value })}
-                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent-blue"
+                className="w-full px-4 py-3 bg-[color:var(--input-bg)] border border-[color:var(--border-color)] rounded-lg text-[color:var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[color:var(--action-secondary)] dark:bg-gray-800 dark:border-gray-700 dark:text-white"
                 required
               />
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-[color:var(--text-secondary)] mb-2 dark:text-gray-300">
                   Categoria *
                 </label>
                 <select
                   value={post.category}
                   onChange={(e) => setPost({ ...post, category: e.target.value })}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent-blue"
+                  className="w-full px-4 py-3 bg-[color:var(--input-bg)] border border-[color:var(--border-color)] rounded-lg text-[color:var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[color:var(--action-secondary)] dark:bg-gray-800 dark:border-gray-700 dark:text-white"
                 >
                   <option>Financiamento</option>
                   <option>Avaliação</option>
@@ -143,33 +143,33 @@ export default function EditarPost() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-[color:var(--text-secondary)] mb-2 dark:text-gray-300">
                   Tempo de Leitura
                 </label>
                 <input
                   type="text"
                   value={post.read_time}
                   onChange={(e) => setPost({ ...post, read_time: e.target.value })}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent-blue"
+                  className="w-full px-4 py-3 bg-[color:var(--input-bg)] border border-[color:var(--border-color)] rounded-lg text-[color:var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[color:var(--action-secondary)] dark:bg-gray-800 dark:border-gray-700 dark:text-white"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-[color:var(--text-secondary)] mb-2 dark:text-gray-300">
                 Resumo *
               </label>
               <textarea
                 value={post.excerpt}
                 onChange={(e) => setPost({ ...post, excerpt: e.target.value })}
-                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent-blue resize-none"
+                className="w-full px-4 py-3 bg-[color:var(--input-bg)] border border-[color:var(--border-color)] rounded-lg text-[color:var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[color:var(--action-secondary)] resize-none dark:bg-gray-800 dark:border-gray-700 dark:text-white"
                 rows={3}
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-[color:var(--text-secondary)] mb-2 dark:text-gray-300">
                 Imagem de Capa (opcional)
               </label>
               <input
@@ -177,9 +177,9 @@ export default function EditarPost() {
                 accept="image/*"
                 onChange={handleImageUpload}
                 disabled={uploading}
-                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:bg-accent-blue file:text-white file:cursor-pointer hover:file:bg-accent-blue/90"
+                className="w-full px-4 py-3 bg-[color:var(--input-bg)] border border-[color:var(--border-color)] rounded-lg text-[color:var(--foreground)] file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:bg-[color:var(--action-primary)] file:text-white file:cursor-pointer hover:file:bg-[color:var(--action-primary-hover)] dark:bg-gray-800 dark:border-gray-700 dark:text-white"
               />
-              {uploading && <p className="text-sm text-gray-400 mt-2">Fazendo upload...</p>}
+              {uploading && <p className="text-sm text-[color:var(--text-tertiary)] mt-2 dark:text-gray-400">Fazendo upload...</p>}
               {post.cover_image && (
                 <div className="mt-4">
                   <div className="relative w-full max-w-md h-48 rounded-lg overflow-hidden">
@@ -194,7 +194,7 @@ export default function EditarPost() {
                   <button
                     type="button"
                     onClick={() => setPost({ ...post, cover_image: '' })}
-                    className="mt-2 text-sm text-red-400 hover:text-red-300"
+                    className="mt-2 text-sm text-red-500 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300"
                   >
                     Remover imagem
                   </button>
@@ -203,31 +203,31 @@ export default function EditarPost() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-[color:var(--text-secondary)] mb-2 dark:text-gray-300">
                 Conteúdo do Post * (Suporta Markdown)
               </label>
               <textarea
                 value={post.content}
                 onChange={(e) => setPost({ ...post, content: e.target.value })}
-                className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent-blue resize-none font-mono text-sm"
+                className="w-full px-4 py-3 bg-[color:var(--input-bg)] border border-[color:var(--border-color)] rounded-lg text-[color:var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[color:var(--action-secondary)] resize-none font-mono text-sm dark:bg-gray-800 dark:border-gray-700 dark:text-white"
                 rows={20}
                 required
               />
-              <p className="text-sm text-gray-400 mt-2">
+              <p className="text-sm text-[color:var(--text-tertiary)] mt-2 dark:text-gray-400">
                 ✨ Dicas: Use ## para títulos | ** para negrito | * para itálico | - para listas
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-[color:var(--text-secondary)] mb-2 dark:text-gray-300">
                   Autor
                 </label>
                 <input
                   type="text"
                   value={post.author}
                   onChange={(e) => setPost({ ...post, author: e.target.value })}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent-blue"
+                  className="w-full px-4 py-3 bg-[color:var(--input-bg)] border border-[color:var(--border-color)] rounded-lg text-[color:var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[color:var(--action-secondary)] dark:bg-gray-800 dark:border-gray-700 dark:text-white"
                 />
               </div>
 
@@ -239,7 +239,7 @@ export default function EditarPost() {
                   type="date"
                   value={post.date}
                   onChange={(e) => setPost({ ...post, date: e.target.value })}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent-blue"
+                  className="w-full px-4 py-3 bg-[color:var(--input-bg)] border border-[color:var(--border-color)] rounded-lg text-[color:var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[color:var(--action-secondary)] dark:bg-gray-800 dark:border-gray-700 dark:text-white"
                 />
               </div>
             </div>
@@ -248,14 +248,14 @@ export default function EditarPost() {
           <div className="flex justify-end gap-4">
             <Link
               href="/admin/dashboard"
-              className="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors"
+              className="px-6 py-3 bg-[color:var(--surface-alt)] hover:bg-[color:var(--surface-soft)] text-[color:var(--foreground)] rounded-lg transition-colors dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white"
             >
               Cancelar
             </Link>
             <button
               type="submit"
               disabled={loading || uploading}
-              className="px-6 py-3 bg-gradient-to-r from-[#DD0000] via-[#F77F00] to-[#FCBF49] hover:from-[#c20000] hover:via-[#e57400] hover:to-[#e5ad3d] text-white font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+              className="px-6 py-3 bg-gradient-to-r from-[color:var(--action-primary)] via-[color:var(--action-secondary)] to-[color:var(--highlight)] hover:from-[color:var(--action-primary-hover)] hover:via-[color:var(--action-secondary)] hover:to-[color:var(--highlight)] text-white font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
             >
               {loading ? 'Salvando...' : 'Salvar Alterações'}
             </button>

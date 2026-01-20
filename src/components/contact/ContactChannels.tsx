@@ -36,7 +36,7 @@ function ChannelCard({ channel, index }: ChannelCardProps) {
         {channel.href ? (
           <Link
             href={channel.href}
-            className="transition hover:text-[#DD0000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface-muted)] dark:focus-visible:ring-offset-[#121212]"
+            className="transition hover:text-[color:var(--action-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--action-secondary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface-muted)] dark:focus-visible:ring-offset-[#121212]"
           >
             {channel.value}
           </Link>

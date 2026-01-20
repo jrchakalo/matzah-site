@@ -15,7 +15,7 @@ export function ProcessSteps() {
           transition={{ duration: 0.5, delay: index * 0.04, ease: "easeOut" }}
           className="rounded-2xl border border-[color:var(--border-color)] bg-[color:var(--surface)] p-5 shadow-[0_25px_45px_-30px_var(--card-shadow)] transition-colors dark:border-white/10 dark:bg-[#212121]"
         >
-          <span className="text-sm font-semibold text-[#DD0000]">
+          <span className="text-sm font-semibold text-[color:var(--action-primary)]">
             Etapa {index + 1}
           </span>
           <p className="mt-2 text-base font-medium text-[color:var(--text-secondary)] dark:text-neutral-100">

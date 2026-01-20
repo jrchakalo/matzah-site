@@ -43,7 +43,7 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <span className="inline-flex rounded-full bg-[color:var(--badge-bg)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#d24400] shadow-sm dark:bg-[#FCBF49]/15 dark:text-[#F77F00]">
+        <span className="inline-flex rounded-full bg-[color:var(--badge-bg)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--action-secondary)] shadow-sm">
           {eyebrow}
         </span>
       )}

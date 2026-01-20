@@ -28,7 +28,7 @@ export function EmpreendimentoCard({ empreendimento, index }: EmpreendimentoCard
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           loading="lazy"
         />
-        <span className="absolute left-4 top-4 inline-flex rounded-full border border-[color:var(--border-color)] bg-[color:var(--surface)] px-3 py-1 text-xs font-semibold text-[#DD0000] shadow-sm shadow-[0_12px_25px_-15px_var(--card-shadow)] dark:border-white/15 dark:bg-[#2a2a2a]">
+        <span className="absolute left-4 top-4 inline-flex rounded-full border border-[color:var(--border-color)] bg-[color:var(--surface)] px-3 py-1 text-xs font-semibold text-[color:var(--action-primary)] shadow-sm shadow-[0_12px_25px_-15px_var(--card-shadow)] dark:border-white/15 dark:bg-[#2a2a2a]">
           {empreendimento.status}
         </span>
       </div>
@@ -56,7 +56,7 @@ export function EmpreendimentoCard({ empreendimento, index }: EmpreendimentoCard
           <ul className="mt-2 space-y-1 text-sm text-[color:var(--text-secondary)] dark:text-neutral-200">
             {empreendimento.highlights.map((item) => (
               <li key={item} className="flex items-start gap-2">
-                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#F77F00]" aria-hidden />
+                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[color:var(--action-secondary)]" aria-hidden />
                 <span>{item}</span>
               </li>
             ))}
@@ -77,7 +77,7 @@ export function EmpreendimentoCard({ empreendimento, index }: EmpreendimentoCard
         </p>
         <Link
           href={empreendimento.cta.href}
-          className="inline-flex items-center gap-2 rounded-full bg-[#DD0000] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#c20000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-[#141414]"
+          className="inline-flex items-center gap-2 rounded-full bg-[color:var(--action-primary)] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[color:var(--action-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--action-secondary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-[#141414]"
         >
           {empreendimento.cta.label}
           <span aria-hidden>→</span>

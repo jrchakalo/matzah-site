@@ -40,7 +40,7 @@ export function BlogPreview() {
         <ul className="space-y-3 text-sm text-[color:var(--text-secondary)] dark:text-neutral-200">
           {posts.map((post) => (
             <li key={post.slug} className="flex items-start gap-3">
-              <span className="mt-1 h-2 w-2 rounded-full bg-[#DD0000]" aria-hidden />
+              <span className="mt-1 h-2 w-2 rounded-full bg-[color:var(--action-primary)]" aria-hidden />
               <span>
                 <span className="font-semibold text-[color:var(--foreground)] dark:text-white">
                   {post.title}
@@ -55,7 +55,7 @@ export function BlogPreview() {
         <div className="flex flex-wrap gap-3">
           <Link
             href="/blog"
-            className="inline-flex items-center justify-center rounded-full bg-[#DD0000] px-5 py-3 text-sm font-semibold text-white shadow transition hover:bg-[#c20000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F77F00] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-[#121212]"
+            className="inline-flex items-center justify-center rounded-full bg-[color:var(--action-primary)] px-5 py-3 text-sm font-semibold text-white shadow transition hover:bg-[color:var(--action-primary-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--action-secondary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--surface)] dark:focus-visible:ring-offset-[#121212]"
           >
             Explorar o blog
           </Link>
