@@ -52,9 +52,11 @@ matzah-site/
 │   ├── app/                          # Páginas Next.js (App Router)
 │   │   ├── page.tsx                  # Home
 │   │   ├── sobre/                    # Sobre a empresa
-│   │   ├── servicos/                 # Serviços oferecidos
-│   │   ├── empreendimentos/          # Portfolio de projetos
-│   │   ├── depoimentos/              # Testemunhos de clientes
+│   │   ├── grupo-matzah/             # Página do grupo
+│   │   ├── empresas/                 # Páginas das empresas do grupo
+│   │   │   ├── e-c/                  # Empreendimentos & Construções
+│   │   │   ├── s-i/                  # Soluções Imobiliárias
+│   │   │   └── way/                  # Matzah Way
 │   │   ├── blog/                     # Blog público
 │   │   │   ├── page.tsx              # Listagem de posts
 │   │   │   └── [slug]/page.tsx       # Post individual
@@ -67,15 +69,24 @@ matzah-site/
 │   │           ├── novo/             # Criar post
 │   │           └── editar/[id]/      # Editar post
 │   ├── components/                   # Componentes React
-│   │   ├── layout/                   # Header, Footer, Container
+│   │   ├── layout/                   # Header, Footer, Container, tema
 │   │   ├── home/                     # Seções da home
 │   │   ├── services/                 # Cards de serviços
 │   │   ├── testimonials/             # Grid de depoimentos
-│   │   └── contact/                  # Formulário + canais
+│   │   ├── empreendimentos/          # Cards de empreendimentos
+│   │   ├── contact/                  # Formulário + canais
+│   │   ├── Breadcrumbs.tsx           # Breadcrumbs + Schema.org
+│   │   ├── GoogleAnalytics.tsx       # Script opcional do GA4
+│   │   ├── GoogleTagManager.tsx      # Script opcional do GTM
+│   │   └── NewsletterForm.tsx        # Formulário de newsletter
 │   ├── content/                      # Conteúdo estático
 │   │   ├── home.ts                   # Textos da home
+│   │   ├── sobre.ts                  # Textos da página sobre
 │   │   ├── servicos.ts               # Lista de serviços
 │   │   ├── empreendimentos.ts        # Portfolio
+│   │   ├── grupo-matzah.ts           # Dados do grupo e empresas
+│   │   ├── blog.ts                   # Conteúdo do blog público
+│   │   ├── contato.ts                # Canais e textos de contato
 │   │   └── testimonials.ts           # Depoimentos
 │   ├── lib/                          # Utilitários
 │   │   ├── supabase.ts               # Cliente Supabase + CRUD
@@ -85,7 +96,7 @@ matzah-site/
 │       └── useScrollReveal.ts        # Animações scroll
 ├── public/
 │   └── images/                       # Assets otimizados
-├── .env.local                        # Variáveis de ambiente
+├── .env.local                        # Variáveis de ambiente (não versionado)
 └── README.md                         # Você está aqui!
 ```
 
@@ -101,7 +112,7 @@ matzah-site/
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/matzah-site.git
+git clone https://github.com/jrchakalo/matzah-site.git
 cd matzah-site
 
 # Instale as dependências
@@ -110,17 +121,12 @@ npm install
 
 ### 2. Configurar Supabase
 
-Crie um arquivo `.env.local` na raiz do projeto (use `.env.example` como template):
+Crie um arquivo `.env.local` na raiz do projeto (não versionado pelo Git):
 
 ```bash
-# Supabase (OBRIGATÓRIO)
+# Supabase (OBRIGATÓRIO — blog e área admin)
 NEXT_PUBLIC_SUPABASE_URL=https://seu-projeto.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=sua-chave-anonima
-
-# Email (OBRIGATÓRIO para formulário de contato)
-GMAIL_USER=seu-email@gmail.com
-GMAIL_APP_PASSWORD=sua-senha-de-app
-CONTACT_EMAIL_TO=contato@matzah.com.br
 
 # Google Analytics (OPCIONAL)
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
@@ -129,11 +135,12 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
 ```
 
-**Configuração completa do banco de dados:**
-- Veja o arquivo `SUPABASE-SETUP.md` (na raiz) para instruções detalhadas
-- SQL para criar tabela `posts` e políticas RLS
-- Configuração do bucket de imagens
-- Instruções de deployment
+> **Nota:** a chave `anon` do Supabase é pública por design e respeita as políticas de **RLS** do banco. O formulário de contato usa o [FormSubmit](https://formsubmit.co/) e não requer credenciais de email no ambiente.
+
+**Configuração do banco (feito uma vez no painel do Supabase):**
+- Crie a tabela `posts` com as políticas de **RLS** adequadas
+- Configure o bucket de imagens no Storage (usado pelo editor do blog)
+- Crie o usuário admin conforme o passo 4 abaixo
 
 ### 3. Rodar Localmente
 
@@ -150,7 +157,7 @@ Acesse [http://localhost:3000](http://localhost:3000) 🎉
 3. Crie um usuário com email/senha e marque **"Auto Confirm User"**
 4. Faça login em `/admin` com as credenciais criadas
 
-**Documentação completa:** veja `AUTENTICACAO-ADMIN.md` para detalhes de segurança.
+> As credenciais do admin existem **apenas no Supabase** — nunca no código. A autenticação é feita via JWT com rate limiting nativo do Supabase Auth.
 
 ---
 
@@ -244,12 +251,20 @@ npm run lint         # ESLint (análise estática)
 
 ## 🎨 Paleta de Cores
 
+Definida como variáveis CSS em `globals.css`, com tema claro e escuro:
+
 ```css
---primary-red:    #D00000  /* Vermelho principal */
---primary-orange: #F77F00  /* Laranja (hover) */
---primary-yellow: #FCBF49  /* Amarelo (acento) */
---surface:        rgba(17, 24, 39, 0.5)  /* Gray 900/50 */
---border-color:   rgba(75, 85, 99, 1)    /* Gray 600 */
+/* Tema claro */ 
+--action-primary:   #d00000  /* Vermelho principal */
+--action-secondary: #f77f00  /* Laranja (hover) */
+--highlight:        #fcbf49  /* Amarelo (acento) */
+--surface:          #ffffff  /* Superfícies e cards */
+--border-color:     #e5e5e5  /* Bordas */
+
+/* Tema escuro */
+--action-primary:   #dd0000
+--surface:          #212121
+--border-color:     rgba(255, 255, 255, 0.08)
 ```
 
 ---
@@ -284,7 +299,18 @@ O sistema admin utiliza **Supabase Auth** com:
 
 ## 🤝 Contribuindo
 
-Este é um projeto privado da Matzah. Para sugestões ou melhorias, entre em contato via email ou WhatsApp.
+Este é um projeto de cliente mantido pela Matzah. Para sugestões, correções ou melhorias, entre em contato por uma das vias abaixo.
+
+---
+
+## 👤 Autor
+
+[<img src="https://avatars.githubusercontent.com/jrchakalo?v=4" width=115><br><sub>Júnior Silva</sub>](https://github.com/jrchakalo)
+
+**Júnior Silva** — estudante de Engenharia da Computação no CIn/UFPE, Recife — Brasil. Desenvolvimento e manutenção deste site.
+
+- GitHub: [@jrchakalo](https://github.com/jrchakalo)
+- Repositório: [matzah-site](https://github.com/jrchakalo/matzah-site)
 
 ---
 
